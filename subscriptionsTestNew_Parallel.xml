@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Subscriptions Regression Suite" skipfailedinvocationcounts="true" preserve-order="true" parallel="tests" thread-count="3">
+
+    <listeners>
+        <listener class-name="org.nafeth.helpers.ExtentReporterNG"/>
+        <listener class-name="org.nafeth.helpers.Listeners"/>
+    </listeners>
+
+    <test name="Trucking Companies Subscriptions Regression Test">
+        <classes>
+            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_TruckingCompanies"/>
+        </classes>
+    </test>
+
+    <test name="Drivers Subscriptions Regression Test">
+        <classes>
+            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_Drivers"/>
+        </classes>
+    </test>
+
+    <test name="Service Providers Subscriptions Regression Test">
+        <classes>
+            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_ServiceProviders"/>
+        </classes>
+    </test>
+
+</suite>

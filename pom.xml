@@ -1,0 +1,1327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.nafeth</groupId>
+    <artifactId>NafethAutomationProject</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>NafethAutomationProject</name>
+
+    <properties>
+        <project.java.version>1.8</project.java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+
+        <aspectj.version>1.9.7</aspectj.version>
+
+    </properties>
+
+    <profiles>
+
+        <!-- Subscriptions Test profile -->
+        <profile>
+
+            <id>SubscriptionsTest</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>subscriptionsTest.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>465</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--										<receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>NafithAutomationReport.html</include>
+                                            </includes>
+                                        </fileSet>
+
+                                        <fileSet>
+                                            <!-- Screenshots directory Path -->
+                                            <directory>${basedir}/test-output/FailuresScreenshots/</directory>
+                                            <includes>
+                                                <!-- Screenshot file name -->
+                                                <include>*.jpg</include>
+                                            </includes>
+                                        </fileSet>
+
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Specific Registration Tests profile -->
+        <profile>
+
+            <id>specificRegistrationTests</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>specificRegistrationTests.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+<!--                    <plugin>-->
+
+<!--                        <groupId>ch.fortysix</groupId>-->
+<!--                        <artifactId>maven-postman-plugin</artifactId>-->
+<!--                        <version>0.1.6</version>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>Report Generation</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>send-mail</goal>-->
+<!--                                </goals>-->
+<!--                                <inherited>true</inherited>-->
+<!--                                <configuration>-->
+<!--                                    &lt;!&ndash; From Email address &ndash;&gt;-->
+<!--                                    <from>automation@nafith.com</from>-->
+<!--                                    &lt;!&ndash; Email subject &ndash;&gt;-->
+<!--                                    <subject>Subscriptions Test Automation Report</subject>-->
+<!--                                    &lt;!&ndash; Fail the build if the mail doesn't reach &ndash;&gt;-->
+<!--                                    <failonerror>false</failonerror>-->
+<!--                                    &lt;!&ndash; Email Body Content &ndash;&gt;-->
+<!--                                    <htmlMessage>-->
+<!--                                        <![CDATA[-->
+<!--                                    <p>New test build triggered!</p>-->
+<!--                                    <p>Attached html file contains the test result status of Nafith Automation Re-run</p>-->
+<!--                                    ]]>-->
+<!--                                    </htmlMessage>-->
+<!--                                    &lt;!&ndash; host &ndash;&gt;-->
+<!--                                    <mailhost>smtp.gmail.com</mailhost>-->
+<!--                                    &lt;!&ndash; port of the host &ndash;&gt;-->
+<!--                                    <mailport>465</mailport>-->
+<!--                                    <mailssl>true</mailssl>-->
+<!--                                    <mailAltConfig>true</mailAltConfig>-->
+<!--                                    &lt;!&ndash; Email Authentication(Username and Password) &ndash;&gt;-->
+<!--                                    <mailuser>automation@nafith.com</mailuser>-->
+<!--                                    <mailpassword>Automation-1234</mailpassword>-->
+<!--                                    <receivers>-->
+<!--                                        &lt;!&ndash; To Email address &ndash;&gt;-->
+<!--                                        <receiver>emoqbel@nafith.com</receiver>-->
+<!--                                        &lt;!&ndash;                                        <receiver>aalhadi@nafith.com</receiver>&ndash;&gt;-->
+<!--                                    </receivers>-->
+<!--                                    <fileSets>-->
+
+<!--                                        <fileSet>-->
+<!--                                            &lt;!&ndash; Report directory Path &ndash;&gt;-->
+<!--                                            <directory>${basedir}/test-output/ExtentReports/</directory>-->
+<!--                                            <includes>-->
+<!--                                                &lt;!&ndash; Report file name &ndash;&gt;-->
+<!--                                                <include>*.html</include>-->
+<!--                                            </includes>-->
+<!--                                        </fileSet>-->
+
+<!--                                        <fileSet>-->
+<!--                                            &lt;!&ndash; Failed Tests Videos directory Path &ndash;&gt;-->
+<!--                                            <directory>${basedir}/test-output/FailedTestsVideos/</directory>-->
+<!--                                            <includes>-->
+<!--                                                &lt;!&ndash; Report file name &ndash;&gt;-->
+<!--                                                <include>*.mov</include>-->
+<!--                                            </includes>-->
+<!--                                        </fileSet>-->
+
+<!--                                    </fileSets>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin> -->
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- All Registration Tests profile -->
+        <profile>
+
+            <id>allRegistrationTests</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>allRegistrationTests.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <!--                    <plugin>-->
+
+                    <!--                        <groupId>ch.fortysix</groupId>-->
+                    <!--                        <artifactId>maven-postman-plugin</artifactId>-->
+                    <!--                        <version>0.1.6</version>-->
+                    <!--                        <executions>-->
+                    <!--                            <execution>-->
+                    <!--                                <id>Report Generation</id>-->
+                    <!--                                <phase>test</phase>-->
+                    <!--                                <goals>-->
+                    <!--                                    <goal>send-mail</goal>-->
+                    <!--                                </goals>-->
+                    <!--                                <inherited>true</inherited>-->
+                    <!--                                <configuration>-->
+                    <!--                                    &lt;!&ndash; From Email address &ndash;&gt;-->
+                    <!--                                    <from>automation@nafith.com</from>-->
+                    <!--                                    &lt;!&ndash; Email subject &ndash;&gt;-->
+                    <!--                                    <subject>Subscriptions Test Automation Report</subject>-->
+                    <!--                                    &lt;!&ndash; Fail the build if the mail doesn't reach &ndash;&gt;-->
+                    <!--                                    <failonerror>false</failonerror>-->
+                    <!--                                    &lt;!&ndash; Email Body Content &ndash;&gt;-->
+                    <!--                                    <htmlMessage>-->
+                    <!--                                        <![CDATA[-->
+                    <!--                                    <p>New test build triggered!</p>-->
+                    <!--                                    <p>Attached html file contains the test result status of Nafith Automation Re-run</p>-->
+                    <!--                                    ]]>-->
+                    <!--                                    </htmlMessage>-->
+                    <!--                                    &lt;!&ndash; host &ndash;&gt;-->
+                    <!--                                    <mailhost>smtp.gmail.com</mailhost>-->
+                    <!--                                    &lt;!&ndash; port of the host &ndash;&gt;-->
+                    <!--                                    <mailport>465</mailport>-->
+                    <!--                                    <mailssl>true</mailssl>-->
+                    <!--                                    <mailAltConfig>true</mailAltConfig>-->
+                    <!--                                    &lt;!&ndash; Email Authentication(Username and Password) &ndash;&gt;-->
+                    <!--                                    <mailuser>automation@nafith.com</mailuser>-->
+                    <!--                                    <mailpassword>Automation-1234</mailpassword>-->
+                    <!--                                    <receivers>-->
+                    <!--                                        &lt;!&ndash; To Email address &ndash;&gt;-->
+                    <!--                                        <receiver>emoqbel@nafith.com</receiver>-->
+                    <!--                                        &lt;!&ndash;                                        <receiver>aalhadi@nafith.com</receiver>&ndash;&gt;-->
+                    <!--                                    </receivers>-->
+                    <!--                                    <fileSets>-->
+
+                    <!--                                        <fileSet>-->
+                    <!--                                            &lt;!&ndash; Report directory Path &ndash;&gt;-->
+                    <!--                                            <directory>${basedir}/test-output/ExtentReports/</directory>-->
+                    <!--                                            <includes>-->
+                    <!--                                                &lt;!&ndash; Report file name &ndash;&gt;-->
+                    <!--                                                <include>*.html</include>-->
+                    <!--                                            </includes>-->
+                    <!--                                        </fileSet>-->
+
+                    <!--                                        <fileSet>-->
+                    <!--                                            &lt;!&ndash; Failed Tests Videos directory Path &ndash;&gt;-->
+                    <!--                                            <directory>${basedir}/test-output/FailedTestsVideos/</directory>-->
+                    <!--                                            <includes>-->
+                    <!--                                                &lt;!&ndash; Report file name &ndash;&gt;-->
+                    <!--                                                <include>*.mov</include>-->
+                    <!--                                            </includes>-->
+                    <!--                                        </fileSet>-->
+
+                    <!--                                    </fileSets>-->
+                    <!--                                </configuration>-->
+                    <!--                            </execution>-->
+                    <!--                        </executions>-->
+                    <!--                    </plugin> -->
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Dynamic Subscriptions Test -->
+        <profile>
+
+            <id>DynamicSubscriptionsTest</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+                            <!--                            <argLine>&#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED</argLine>-->
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+
+                            <argLine>-Xms1024m -Xmx8g -XX:+HeapDumpOnOutOfMemoryError</argLine>
+                        </configuration>
+                    </plugin>
+
+                    <!--                    maven-postman-plugin-->
+                    <!--                    <plugin>-->
+
+                    <!--                        <groupId>ch.fortysix</groupId>-->
+                    <!--                        <artifactId>maven-postman-plugin</artifactId>-->
+                    <!--                        <version>0.1.6</version>-->
+                    <!--                        <executions>-->
+                    <!--                            <execution>-->
+                    <!--                                <id>Report Generation</id>-->
+                    <!--                                <phase>test</phase>-->
+                    <!--                                <goals>-->
+                    <!--                                    <goal>send-mail</goal>-->
+                    <!--                                </goals>-->
+                    <!--                                <inherited>true</inherited>-->
+                    <!--                                <configuration>-->
+                    <!--                                    &lt;!&ndash; From Email address &ndash;&gt;-->
+                    <!--                                    <from>automation@nafith.com</from>-->
+                    <!--                                    &lt;!&ndash; Email subject &ndash;&gt;-->
+                    <!--                                    <subject>Subscriptions Test Automation Report</subject>-->
+                    <!--                                    &lt;!&ndash; Fail the build if the mail doesn't reach &ndash;&gt;-->
+                    <!--                                    <failonerror>false</failonerror>-->
+                    <!--                                    &lt;!&ndash; Email Body Content &ndash;&gt;-->
+                    <!--                                    <htmlMessage>-->
+                    <!--                                        <![CDATA[-->
+                    <!--                                    <p>New test build triggered!</p>-->
+                    <!--                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>-->
+                    <!--                                    ]]>-->
+                    <!--                                    </htmlMessage>-->
+                    <!--                                    &lt;!&ndash; host &ndash;&gt;-->
+                    <!--                                    <mailhost>smtp.gmail.com</mailhost>-->
+                    <!--                                    &lt;!&ndash; port of the host &ndash;&gt;-->
+                    <!--                                    <mailport>587</mailport>-->
+                    <!--                                    <mailssl>true</mailssl>-->
+                    <!--                                    <mailAltConfig>true</mailAltConfig>-->
+                    <!--                                    &lt;!&ndash; Email Authentication(Username and Password) &ndash;&gt;-->
+                    <!--                                    <mailuser>automation@nafith.com</mailuser>-->
+                    <!--                                    <mailpassword>Automation-1234</mailpassword>-->
+                    <!--                                    <receivers>-->
+                    <!--                                        &lt;!&ndash; To Email address &ndash;&gt;-->
+                    <!--                                        <receiver>emoqbel@nafith.com</receiver>-->
+                    <!--                                        &lt;!&ndash;                                        <receiver>aalhadi@nafith.com</receiver>&ndash;&gt;-->
+                    <!--                                    </receivers>-->
+                    <!--                                    <fileSets>-->
+
+                    <!--                                        <fileSet>-->
+                    <!--                                            &lt;!&ndash; Report directory Path &ndash;&gt;-->
+                    <!--                                            <directory>${basedir}/test-output/ExtentReports/</directory>-->
+                    <!--                                            <includes>-->
+                    <!--                                                &lt;!&ndash; Report file name &ndash;&gt;-->
+                    <!--                                                <include>NafithAutomationReport.html</include>-->
+                    <!--                                            </includes>-->
+                    <!--                                        </fileSet>-->
+
+                    <!--                                    </fileSets>-->
+                    <!--                                </configuration>-->
+                    <!--                            </execution>-->
+                    <!--                        </executions>-->
+                    <!--                    </plugin>-->
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Subscriptions Test New profile -->
+        <profile>
+
+            <id>SubscriptionsTestNew</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>subscriptionsTestNew.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Subscriptions Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>465</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--                                        <receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>NafithAutomationReport.html</include>
+                                            </includes>
+                                        </fileSet>
+
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Subscriptions Test New Parallel profile -->
+        <profile>
+
+            <id>SubscriptionsTestNewParallel</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>subscriptionsTestNew_Parallel.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Subscriptions Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>465</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--                                        <receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>NafithAutomationReport.html</include>
+                                            </includes>
+                                        </fileSet>
+
+                                        <fileSet>
+                                            <!-- Screenshots directory Path -->
+                                            <directory>${basedir}/test-output/FailuresScreenshots/</directory>
+                                            <includes>
+                                                <!-- Screenshot file name -->
+                                                <include>*.jpg</include>
+                                            </includes>
+                                        </fileSet>
+
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- POS Data Insertion profile -->
+        <profile>
+
+            <id>PosScriptsTest</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                                <noOfReceipts>${noOfReceipts}</noOfReceipts>
+                                <receiptAmount>${receiptAmount}</receiptAmount>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>PosDataTest.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>587</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--                                        <receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>NafithAutomationReport.html</include>
+                                            </includes>
+                                        </fileSet>
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Rerun profile OLD -->
+        <profile>
+
+            <id>RerunSuiteTestOld</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>465</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--                                        <receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>NafithAutomationReport.html</include>
+                                            </includes>
+                                        </fileSet>
+
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Rerun profile NEW -->
+        <profile>
+
+            <id>RerunSuiteTest</id>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>src/main/java/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <language>${language}</language>
+                                <browser>${browser}</browser>
+                            </systemPropertyVariables>
+
+                            <encoding>UTF-8</encoding>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <debugForkedProcess>true</debugForkedProcess>
+                            <forkMode>once</forkMode>
+                            <forkCount>0</forkCount>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>rerunSuite.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+
+                        <groupId>ch.fortysix</groupId>
+                        <artifactId>maven-postman-plugin</artifactId>
+                        <version>0.1.6</version>
+                        <executions>
+                            <execution>
+                                <id>Report Generation</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>send-mail</goal>
+                                </goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <!-- From Email address -->
+                                    <from>automation@nafith.com</from>
+                                    <!-- Email subject -->
+                                    <subject>Subscriptions Test Automation Report</subject>
+                                    <!-- Fail the build if the mail doesn't reach -->
+                                    <failonerror>false</failonerror>
+                                    <!-- Email Body Content -->
+                                    <htmlMessage>
+                                        <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status of Nafith Automation Re-run</p>
+                                    ]]>
+                                    </htmlMessage>
+                                    <!-- host -->
+                                    <mailhost>smtp.gmail.com</mailhost>
+                                    <!-- port of the host -->
+                                    <mailport>465</mailport>
+                                    <mailssl>true</mailssl>
+                                    <mailAltConfig>true</mailAltConfig>
+                                    <!-- Email Authentication(Username and Password) -->
+                                    <mailuser>automation@nafith.com</mailuser>
+                                    <mailpassword>Automation-1234</mailpassword>
+                                    <receivers>
+                                        <!-- To Email address -->
+                                        <receiver>emoqbel@nafith.com</receiver>
+                                        <!--                                        <receiver>aalhadi@nafith.com</receiver>-->
+                                    </receivers>
+                                    <fileSets>
+
+                                        <fileSet>
+                                            <!-- Report directory Path -->
+                                            <directory>${basedir}/test-output/ExtentReports/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>*.html</include>
+                                            </includes>
+                                        </fileSet>
+
+                                        <fileSet>
+                                            <!-- Failed Tests Videos directory Path -->
+                                            <directory>${basedir}/test-output/FailedTestsVideos/</directory>
+                                            <includes>
+                                                <!-- Report file name -->
+                                                <include>*.mov</include>
+                                            </includes>
+                                        </fileSet>
+
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.uiautomation</groupId>
+            <artifactId>libimobiledevice-wrapper</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.5</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>5.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.automation-remarks</groupId>
+            <artifactId>video-recorder</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>xml-path</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-web-test-client</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>scala-support</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>kotlin-extensions</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured-all</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>smtp</artifactId>
+            <version>1.6.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mailapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.ews-java-api</groupId>
+            <artifactId>ews-java-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.fortysix/maven-postman-plugin -->
+        <dependency>
+            <groupId>ch.fortysix</groupId>
+            <artifactId>maven-postman-plugin</artifactId>
+            <version>0.1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>9.4.0.jre8</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>ATUTestRecorder</artifactId>
+            <version>2.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/jars/ATUTestRecorder_2.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>ATUReporter_Selenium_testNG</artifactId>
+            <version>5.1.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/jars/ATUReporter_Selenium_testNG_5.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.Cloudmersive</groupId>
+            <artifactId>Cloudmersive.APIClient.Java</artifactId>
+            <version>v3.54</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+
+    <build>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven
+				defaults (may be moved to parent pom) -->
+            <plugins>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <source>${project.java.version}</source>
+                        <target>${project.java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                    <configuration>
+                        <outputEncoding>UTF-8</outputEncoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

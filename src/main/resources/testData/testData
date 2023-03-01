@@ -1,0 +1,36 @@
+packageCode                                = PTC0001
+1stServiceCode                             = TC0001
+2ndServiceCode                             = TC0002
+3rdServiceCode                             = TC0003
+4thServiceCode                             = TC0004
+
+FirstSubscriptionAccessPeriod              = One Month
+SecondSubscriptionAccessPeriod             = Three Months
+ThirdSubscriptionAccessPeriod              = Six Months
+ForthSubscriptionAccessPeriod              = One Year
+
+FirstSubscriptionAccessPrice               = 35
+SecondSubscriptionAccessPrice              = 100
+ThirdSubscriptionAccessPrice               = 195
+ForthSubscriptionAccessPrice               = 365
+
+FirstSubscriptionWeighInPeriod              = One Month
+SecondSubscriptionWeighInPeriod             = Three Months
+ThirdSubscriptionWeighInPeriod              = Six Months
+ForthSubscriptionWeighInPeriod              = One Year
+
+FirstSubscriptionWeighInPrice               = 0
+SecondSubscriptionWeighInPrice              = 0
+ThirdSubscriptionWeighInPrice               = 0
+ForthSubscriptionWeighInPrice               = 0
+
+RandomValue                                 = عمران
+
+############################## Payment Data ############################
+
+CreditCardNumber                            = 4012001037490006
+ExpDateMonth                                = 10
+ExpDateYear                                 = 2023
+CardHoldersName                             = emran moqbel
+CVV                                         = 123
+RRN                                         = 000987654335
