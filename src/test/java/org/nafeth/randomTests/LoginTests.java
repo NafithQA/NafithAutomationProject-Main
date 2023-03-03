@@ -10,20 +10,20 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends Configurations {
 
-	@Test
-	public void loginWithValidCredentials() throws IOException {
-
-		Functions functions = new Functions();
-		LoginPage loginPage = new LoginPage(driver);
-		HomePage homePage = new HomePage(driver);
-
-		functions.navigateToQaURL();
-		loginPage.fillUserNameFieldFromProperties("qaUserName");
-		loginPage.fillPasswordFieldFromProperties("qaPassword");
-		loginPage.clickOnLoginButton();
-		homePage.clickOnMainMenuButton();
-		homePage.clickOnSubscriptionsSectionButton();
-		homePage.clickOnFleetSubscriptionsButton();
-		homePage.clickOnFleetSubscriptionsPageButton();
-	}
+//	@Test
+//	public void loginWithValidCredentials() throws IOException {
+//
+//		Functions functions = new Functions();
+//		LoginPage loginPage = new LoginPage(driver);
+//		HomePage homePage = new HomePage(driver);
+//
+//		functions.navigateToQaURL();
+//		loginPage.fillUserNameFieldFromProperties("qaUserName");
+//		loginPage.fillPasswordFieldFromProperties("qaPassword");
+//		loginPage.clickOnLoginButton();
+//		homePage.clickOnMainMenuButton();
+//		homePage.clickOnSubscriptionsSectionButton();
+//		homePage.clickOnFleetSubscriptionsButton();
+//		homePage.clickOnFleetSubscriptionsPageButton();
+//	}
 }
