@@ -3,7 +3,7 @@ package org.nafeth.fleetRegistrationTests;
 import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.FleetRegistrationSteps;
-import org.nafeth.pageModels.RegistrationPage;
+import org.nafeth.pageModels.FleetRegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +14,7 @@ public class DriverOwnerFleetRegistrationTests extends Configurations {
     @Test(enabled = true)
     public void Trailers_DriverOwner_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
 
@@ -40,19 +40,19 @@ public class DriverOwnerFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.uploadTrailersRegistrationAttachments();
 
         // Check the Agreement
-        registrationPage.clickOnAgreementCheckbox();
+        fleetRegistrationPage.clickOnAgreementCheckbox();
 
         // Proceed with Final Registration Steps
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Trucks_DriverOwner_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
 
@@ -78,19 +78,19 @@ public class DriverOwnerFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.uploadTrucksRegistrationAttachments();
 
         // Check the Agreement
-        registrationPage.clickOnAgreementCheckbox();
+        fleetRegistrationPage.clickOnAgreementCheckbox();
 
         // Proceed with Final Registration Steps
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Equipment_DriverOwner_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
 
@@ -116,12 +116,12 @@ public class DriverOwnerFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.uploadEquipmentsRegistrationAttachments();
 
         // Check the Agreement
-        registrationPage.clickOnAgreementCheckbox();
+        fleetRegistrationPage.clickOnAgreementCheckbox();
 
         // Proceed with Final Registration Steps
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 }

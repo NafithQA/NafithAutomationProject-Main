@@ -3,7 +3,7 @@ package org.nafeth.fleetRegistrationTests;
 import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.FleetRegistrationSteps;
-import org.nafeth.pageModels.RegistrationPage;
+import org.nafeth.pageModels.FleetRegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +14,7 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
     @Test(enabled = true)
     public void Trailers_NafithRole_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
 
@@ -43,13 +43,13 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Trucks_NafithRole_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
 
@@ -78,13 +78,13 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Equipments_NafithRole_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
 
@@ -113,13 +113,13 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Buses_NafithRole_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         // Login
@@ -147,13 +147,13 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
     public void Cars_NafithRole_Registration() throws IOException, InterruptedException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         // Login
@@ -181,7 +181,7 @@ public class NafithRoleFleetRegistrationTests extends Configurations {
         fleetRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(fleetRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 
 }
