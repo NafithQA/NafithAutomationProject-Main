@@ -26,8 +26,8 @@ public class SubscriptionsTests2 extends Configurations {
         functions.navigateToQaURL();
 
 //      Login to Nafith from properties
-        loginPage.fillUserNameFieldFromProperties("qaUserName1");
-        loginPage.fillPasswordFieldFromProperties("qaPassword1");
+//        loginPage.fillUserNameFieldFromProperties("qaUserName1");
+//        loginPage.fillPasswordFieldFromProperties("qaPassword1");
 
         loginPage.clickOnLoginButton();
 
