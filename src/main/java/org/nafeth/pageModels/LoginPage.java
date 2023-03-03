@@ -30,16 +30,14 @@ public class LoginPage {
     private WebElement loginButton;
 
     public WebElement getUserNameField(){
-
         return userNameField;
     }
 
     public WebElement getPasswordField(){
-
         return passwordField;
     }
 
-    public void fillUserNameFieldFromProperties(String userName) throws IOException {
+/*    public void fillUserNameFieldFromProperties(String userName) throws IOException {
 
         functions.waitForElementToBeClickable(userNameField);
         userNameField.sendKeys(dataLoader.credentialsData(userName));
@@ -62,18 +60,18 @@ public class LoginPage {
         System.out.println("PlateCodeEn is " + values.get(3));
 
 
-    }
+    } */
 
-//    public void fillUserAndPassFromExcel(String hasTruck, String hasEquipment, String hasAffilication, String hasSubscription, String truckType) {
-//
-//        functions.waitForElementToBeClickable(userNameField);
-//        Pair<String, Integer> credentials = excelHandler.getUserAndPass(hasTruck, hasEquipment, hasAffilication, hasSubscription, truckType);
-//        String userName = credentials.first;
-//        int password = credentials.second;
-//
-//        userNameField.sendKeys(userName);
-//        passwordField.sendKeys(String.valueOf(password));
-//    }
+/*    public void fillUserAndPassFromExcel(String hasTruck, String hasEquipment, String hasAffilication, String hasSubscription, String truckType) {
+
+        functions.waitForElementToBeClickable(userNameField);
+        Pair<String, Integer> credentials = excelHandler.getUserAndPass(hasTruck, hasEquipment, hasAffilication, hasSubscription, truckType);
+        String userName = credentials.first;
+        int password = credentials.second;
+
+        userNameField.sendKeys(userName);
+        passwordField.sendKeys(String.valueOf(password));
+    } */
 
     public void clickOnLoginButton() {
 
