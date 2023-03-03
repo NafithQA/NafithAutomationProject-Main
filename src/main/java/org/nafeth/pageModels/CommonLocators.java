@@ -58,9 +58,27 @@ public class CommonLocators {
     @FindBy(id = "CREATE")
     private WebElement createButton;
 
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-up']")
+    private WebElement yesButton;
+
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-down']")
+    private WebElement noButton;
+
     // Agreement Check
     @FindBy(id = "checkAgree")
     private WebElement agreementCheckbox;
+
+    public void clickOnYesButton() {
+
+        functions.waitForElementToBeClickable(yesButton);
+        yesButton.click();
+    }
+
+    public void clickOnNoButton() {
+
+        functions.waitForElementToBeClickable(noButton);
+        noButton.click();
+    }
 
     public void clickOnOwnedFleetChooseButton() {
 
