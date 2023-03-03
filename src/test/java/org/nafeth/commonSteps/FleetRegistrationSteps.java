@@ -3,7 +3,7 @@ package org.nafeth.commonSteps;
 import org.nafeth.helpers.Functions;
 import org.nafeth.pageModels.CommonLocators;
 import org.nafeth.pageModels.HomePage;
-import org.nafeth.pageModels.RegistrationPage;
+import org.nafeth.pageModels.FleetRegistrationPage;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -90,25 +90,25 @@ public class FleetRegistrationSteps {
     public void fillInLicenseInfo() throws InterruptedException {
 
         Functions functions = new Functions();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        if (registrationPage.getDocumentNationalityDropDownList().isDisplayed()) {
-            functions.dropDownPickerByIndex(registrationPage.getDocumentNationalityDropDownList(), 2);
+        if (fleetRegistrationPage.getDocumentNationalityDropDownList().isDisplayed()) {
+            functions.dropDownPickerByIndex(fleetRegistrationPage.getDocumentNationalityDropDownList(), 2);
         }
-        registrationPage.getLicenseIssuingDatePicker().sendKeys(functions.generateRandomDate("PAST"));
-        registrationPage.getLicenseExpiryDatePicker().sendKeys(functions.generateRandomDate("FUTURE"));
+        fleetRegistrationPage.getLicenseIssuingDatePicker().sendKeys(functions.generateRandomDate("PAST"));
+        fleetRegistrationPage.getLicenseExpiryDatePicker().sendKeys(functions.generateRandomDate("FUTURE"));
         Thread.sleep(1000);
     }
     public void fillInLicenseInfo_NafithRole() throws InterruptedException {
 
         Functions functions = new Functions();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        if (registrationPage.getDocumentNationalityDropDownList().isDisplayed()) {
-            functions.dropDownPickerByIndex(registrationPage.getDocumentNationalityDropDownList(), 1);
+        if (fleetRegistrationPage.getDocumentNationalityDropDownList().isDisplayed()) {
+            functions.dropDownPickerByIndex(fleetRegistrationPage.getDocumentNationalityDropDownList(), 1);
         }
-        registrationPage.getLicenseIssuingDatePicker().sendKeys(functions.generateRandomDate("PAST"));
-        registrationPage.getLicenseExpiryDatePicker().sendKeys(functions.generateRandomDate("FUTURE"));
+        fleetRegistrationPage.getLicenseIssuingDatePicker().sendKeys(functions.generateRandomDate("PAST"));
+        fleetRegistrationPage.getLicenseExpiryDatePicker().sendKeys(functions.generateRandomDate("FUTURE"));
         Thread.sleep(1000);
     }
 
@@ -116,23 +116,23 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        functions.dropDownPickerByValue(registrationPage.getStakeholderTypeDropDownList(), "10");
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderTypeDropDownList(), "10");
         Thread.sleep(10000);
-        functions.dropDownPickerByIndex(registrationPage.getStakeholderNameDropDownList(), 2);
-        functions.scrollIntoElement(registrationPage.getStakeholderTypeDropDownList());
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getStakeholderNameDropDownList(), 2);
+        functions.scrollIntoElement(fleetRegistrationPage.getStakeholderTypeDropDownList());
         Thread.sleep(750);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getPlateCodeDropDownList(), 5);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateCodeDropDownList(), 5);
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleClassDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleClassDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
 
@@ -140,103 +140,103 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        functions.dropDownPickerByValue(registrationPage.getStakeholderTypeDropDownList(), "10");
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderTypeDropDownList(), "10");
         Thread.sleep(7000);
-        functions.dropDownPickerByIndex(registrationPage.getStakeholderNameDropDownList(), 2);
-        functions.scrollIntoElement(registrationPage.getStakeholderTypeDropDownList());
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getStakeholderNameDropDownList(), 2);
+        functions.scrollIntoElement(fleetRegistrationPage.getStakeholderTypeDropDownList());
         Thread.sleep(750);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getPlateCodeDropDownList(), 8);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateCodeDropDownList(), 8);
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        registrationPage.getEmptyWeightField().sendKeys("5000");
-        registrationPage.getMaximumLoadField().sendKeys("15000");
-        registrationPage.getNumberOfAxesField().sendKeys("5");
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        fleetRegistrationPage.getEmptyWeightField().sendKeys("5000");
+        fleetRegistrationPage.getMaximumLoadField().sendKeys("15000");
+        fleetRegistrationPage.getNumberOfAxesField().sendKeys("5");
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
     public void fillInEquipmentsRegistrationInfo_NafithRole() throws InterruptedException, IOException {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        functions.dropDownPickerByValue(registrationPage.getStakeholderTypeDropDownList(), "11");
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderTypeDropDownList(), "11");
         Thread.sleep(7000);
-        functions.dropDownPickerByValue(registrationPage.getStakeholderNameDropDownList(), "1243");
-        functions.scrollIntoElement(registrationPage.getStakeholderTypeDropDownList());
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderNameDropDownList(), "1243");
+        functions.scrollIntoElement(fleetRegistrationPage.getStakeholderTypeDropDownList());
         Thread.sleep(750);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getPlateCodeDropDownList(), 5);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateCodeDropDownList(), 5);
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleClassTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        registrationPage.getEmptyWeightField().sendKeys("5000");
-        registrationPage.getMaximumLoadField().sendKeys("15000");
-        registrationPage.getNumberOfAxesField().sendKeys("5");
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleClassTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        fleetRegistrationPage.getEmptyWeightField().sendKeys("5000");
+        fleetRegistrationPage.getMaximumLoadField().sendKeys("15000");
+        fleetRegistrationPage.getNumberOfAxesField().sendKeys("5");
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
 
     public void fillInBusesRegistrationInfo_NafithRole() throws InterruptedException, IOException {
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-        functions.dropDownPickerByValue(registrationPage.getStakeholderTypeDropDownList(), "7");
-        functions.dropDownPickerByValue(registrationPage.getIndustrialEstateDropDownList(), "4");
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderTypeDropDownList(), "7");
+        functions.dropDownPickerByValue(fleetRegistrationPage.getIndustrialEstateDropDownList(), "4");
         Thread.sleep(7000);
-        functions.dropDownPickerByIndex(registrationPage.getStakeholderNameDropDownList(), 6);
-        functions.scrollIntoElement(registrationPage.getStakeholderTypeDropDownList());
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getStakeholderNameDropDownList(), 6);
+        functions.scrollIntoElement(fleetRegistrationPage.getStakeholderTypeDropDownList());
         Thread.sleep(750);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
+        fleetRegistrationPage.fillplateNum(plateNumber);
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getPlateCodeDropDownList(), 6);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateCodeDropDownList(), 6);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
-        registrationPage.getNumPassengersField().sendKeys("2");
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getNumPassengersField().sendKeys("2");
         functions.scrollThePageUp();
     }
     public void fillInCarsRegistrationInfo_NafithRole() throws InterruptedException, IOException {
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-        functions.dropDownPickerByValue(registrationPage.getStakeholderTypeDropDownList(), "7");
-        functions.dropDownPickerByValue(registrationPage.getIndustrialEstateDropDownList(), "4");
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+        functions.dropDownPickerByValue(fleetRegistrationPage.getStakeholderTypeDropDownList(), "7");
+        functions.dropDownPickerByValue(fleetRegistrationPage.getIndustrialEstateDropDownList(), "4");
         Thread.sleep(7000);
-        functions.dropDownPickerByIndex(registrationPage.getStakeholderNameDropDownList(), 5);
-        functions.scrollIntoElement(registrationPage.getStakeholderTypeDropDownList());
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getStakeholderNameDropDownList(), 5);
+        functions.scrollIntoElement(fleetRegistrationPage.getStakeholderTypeDropDownList());
         Thread.sleep(750);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
+        fleetRegistrationPage.fillplateNum(plateNumber);
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getPlateCodeDropDownList(), 8);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateCodeDropDownList(), 8);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         functions.scrollThePageUp();
 
@@ -246,19 +246,19 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
         Thread.sleep(2000);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         Thread.sleep(1000);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleClassDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleClassDropDownList(), 2);
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
         Thread.sleep(1000);
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
 
@@ -266,61 +266,61 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        registrationPage.getEmptyWeightField().sendKeys("5000");
-        registrationPage.getMaximumLoadField().sendKeys("15000");
-        registrationPage.getNumberOfAxesField().sendKeys("5");
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        fleetRegistrationPage.getEmptyWeightField().sendKeys("5000");
+        fleetRegistrationPage.getMaximumLoadField().sendKeys("15000");
+        fleetRegistrationPage.getNumberOfAxesField().sendKeys("5");
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
         Thread.sleep(1000);
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
     public void fillInEquipmentRegistrationInfo() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleClassTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        registrationPage.getEmptyWeightField().sendKeys("5000");
-        registrationPage.getMaximumLoadField().sendKeys("15000");
-        registrationPage.getNumberOfAxesField().sendKeys("5");
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleClassTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        fleetRegistrationPage.getEmptyWeightField().sendKeys("5000");
+        fleetRegistrationPage.getMaximumLoadField().sendKeys("15000");
+        fleetRegistrationPage.getNumberOfAxesField().sendKeys("5");
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
         Thread.sleep(1000);
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
         functions.scrollThePageUp();
     }
     public void fillInBusesRegistrationInfo() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getUsageDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getUsageDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
-        registrationPage.getNumPassengersField().sendKeys("2");
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getNumPassengersField().sendKeys("2");
         functions.scrollThePageUp();
     }
 
@@ -328,68 +328,68 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         String plateNumber = String.valueOf(functions.generateRandomNumber(6));
-        registrationPage.fillplateNum(plateNumber);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleColorDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getPlateTypeDropDownList(), 2);
-        functions.dropDownPickerByIndex(registrationPage.getVehicleTypeDropDownList(),  2);
+        fleetRegistrationPage.fillplateNum(plateNumber);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleColorDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getPlateTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(fleetRegistrationPage.getVehicleTypeDropDownList(),  2);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         String chassesNumber = String.valueOf(functions.generateRandomNumber(17));
-        functions.scrollIntoElement(registrationPage.getChassesNumberField());
-        registrationPage.getChassesNumberField().sendKeys(chassesNumber);
-        registrationPage.getNumPassengersField().sendKeys("2");
+        functions.scrollIntoElement(fleetRegistrationPage.getChassesNumberField());
+        fleetRegistrationPage.getChassesNumberField().sendKeys(chassesNumber);
+        fleetRegistrationPage.getNumPassengersField().sendKeys("2");
         functions.scrollThePageUp();
     }
 
     public void fillInInsuranceInfo() {
 
         Functions functions = new Functions();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        registrationPage.clickOnInsuranceCompanyInfoTab();
+        fleetRegistrationPage.clickOnInsuranceCompanyInfoTab();
         String insurancePolicyNumber = String.valueOf(functions.generateRandomNumber(10));
-        registrationPage.getInsurancePolicyNumberField().sendKeys(insurancePolicyNumber);
+        fleetRegistrationPage.getInsurancePolicyNumberField().sendKeys(insurancePolicyNumber);
     }
 
     public void uploadTrucksRegistrationAttachments() throws InterruptedException, IOException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         Functions functions = new Functions();
 
-        registrationPage.clickOnAttachmentsTabButton();
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
         // Attachment 1
-        registrationPage.clickOnAuthorizationAttachmentButton1();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton1();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 2
-        registrationPage.clickOnAuthorizationAttachmentButton2();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton2();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 3
-        registrationPage.clickOnAuthorizationAttachmentButton3();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 4
-        registrationPage.clickOnAuthorizationAttachmentButton4();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton4();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 5
-        registrationPage.clickOnAuthorizationAttachmentButton5();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton5();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 6
-        registrationPage.clickOnAuthorizationAttachmentButton6();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton6();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 7
-        registrationPage.clickOnAuthorizationAttachmentButton7();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton7();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
         Thread.sleep(7000);
@@ -398,32 +398,32 @@ public class FleetRegistrationSteps {
 
     public void uploadTrailersRegistrationAttachments() throws InterruptedException, IOException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         Functions functions = new Functions();
 
-        registrationPage.clickOnAttachmentsTabButton();
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
         // Attachment 1
-        registrationPage.clickOnAuthorizationAttachmentButton1();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton1();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 2
-        registrationPage.clickOnAuthorizationAttachmentButton2();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton2();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 3
-        registrationPage.clickOnAuthorizationAttachmentButton3();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 4
-        registrationPage.clickOnAuthorizationAttachmentButton4();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton4();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 5
-        registrationPage.clickOnAuthorizationAttachmentButton5();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton5();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
         Thread.sleep(7000);
@@ -432,32 +432,32 @@ public class FleetRegistrationSteps {
 
     public void uploadEquipmentsRegistrationAttachments() throws InterruptedException, IOException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         Functions functions = new Functions();
 
-        registrationPage.clickOnAttachmentsTabButton();
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
         // Attachment 1
-        registrationPage.clickOnAuthorizationAttachmentButton1();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton1();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 2
-        registrationPage.clickOnAuthorizationAttachmentButton3();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 4
-        registrationPage.clickOnAuthorizationAttachmentButton5();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton5();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 6
-        registrationPage.clickOnAuthorizationAttachmentButton6();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton6();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 7
-        registrationPage.clickOnAuthorizationAttachmentButton7();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton7();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
         Thread.sleep(7000);
@@ -466,27 +466,27 @@ public class FleetRegistrationSteps {
 
     public void uploadBusesRegistrationAttachments() throws InterruptedException, IOException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         Functions functions = new Functions();
 
-        registrationPage.clickOnAttachmentsTabButton();
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
         // Attachment 1
-        registrationPage.clickOnAuthorizationAttachmentButton3();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 2
-        registrationPage.clickOnAuthorizationAttachmentButton5();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton5();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 3
-        registrationPage.clickOnAuthorizationAttachmentButton6();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton6();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 4
-        registrationPage.clickOnAuthorizationAttachmentButton7();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton7();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
         Thread.sleep(7000);
@@ -494,27 +494,27 @@ public class FleetRegistrationSteps {
     }
     public void uploadCarsRegistrationAttachments() throws InterruptedException, IOException {
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         Functions functions = new Functions();
 
-        registrationPage.clickOnAttachmentsTabButton();
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
         // Attachment 1
-        registrationPage.clickOnAuthorizationAttachmentButton2();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton2();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 3
-        registrationPage.clickOnAuthorizationAttachmentButton3();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 4
-        registrationPage.clickOnAuthorizationAttachmentButton4();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton4();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
         // Attachment 5
-        registrationPage.clickOnAuthorizationAttachmentButton5();
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton5();
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
@@ -526,11 +526,11 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
         functions.scrollThePageDown();
         functions.scrollIntoElementAndClickOnIt(commonLocators.getCreateButton());
         Thread.sleep(750);
-        registrationPage.clickOnYesButton();
+        commonLocators.clickOnYesButton();
     }
 }
