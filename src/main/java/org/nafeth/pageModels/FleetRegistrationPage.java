@@ -10,11 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
-public class RegistrationPage {
+public class FleetRegistrationPage {
 
     private Functions functions = new Functions();
 
-    public RegistrationPage(WebDriver driver) {
+    public FleetRegistrationPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -83,12 +83,6 @@ public class RegistrationPage {
 
     @FindBy(id = "CHASSES_NUMBER")
     private WebElement chassesNumberField;
-
-    @FindBy(xpath = "//i[@class='fa fa-thumbs-up']")
-    private WebElement yesButton;
-
-    @FindBy(xpath = "//i[@class='fa fa-thumbs-down']")
-    private WebElement noButton;
 
     @FindBy(xpath = "//div[@class='swal2-success-ring']")
     private WebElement successRingIcon;
@@ -306,18 +300,6 @@ public class RegistrationPage {
         functions.waitForElementToBeVisible(chassesNumberField);
         functions.waitForElementToBeClickable(chassesNumberField);
         return chassesNumberField;
-    }
-
-    public void clickOnYesButton() {
-
-        functions.waitForElementToBeClickable(yesButton);
-        yesButton.click();
-    }
-
-    public void clickOnNoButton() {
-
-        functions.waitForElementToBeClickable(noButton);
-        noButton.click();
     }
 
     public WebElement getSuccessRingIcon() {
