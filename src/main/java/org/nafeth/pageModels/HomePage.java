@@ -121,8 +121,13 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='app-content content']")
     private WebElement mainAppContent;
+    @FindBy(xpath = "//i[@class='ft-shuffle menu-text-margin']")
+    private WebElement registrationStakeholderMenu;
+    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[2]")
+    private WebElement truckingCompaniesRegistrationMenu;
 
-
+    @FindBy(xpath = "(//li[@class='is-shown'])[2]")
+    private WebElement truckingCompaniesRegistrationPageButton;
 
     public void clickOnMainMenuButton() {
 
@@ -376,4 +381,22 @@ public class HomePage {
             e.printStackTrace();
         }
     }
+
+    public void clickOnRegistrationStakeholderMenu() {
+
+        functions.waitForElementToBeClickable(registrationStakeholderMenu);
+        registrationStakeholderMenu.click();
+    }
+    public void clickOnTruckingCompaniesRegistrationMenu() {
+        functions.waitForElementToBeClickable(truckingCompaniesRegistrationMenu);
+        truckingCompaniesRegistrationMenu.click();
+    }
+
+
+    public void clickOnTruckingCompaniesRegistrationPageButton() {
+
+        functions.waitForElementToBeVisible(truckingCompaniesRegistrationPageButton);
+        truckingCompaniesRegistrationPageButton.click();
+    }
+
 }
