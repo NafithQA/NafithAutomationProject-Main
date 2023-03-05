@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class StakeholdersRegistrationPage {
 
     private Functions functions = new Functions();
@@ -45,6 +47,28 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "closebtn1")
     private WebElement closeButton;
+
+    @FindBy(id = "ATTACHMENT-TAB")
+    private WebElement attachmentsTabButton;
+    @FindBy(id = "CR")
+    private WebElement crAttachmentsTabButton1;
+    @FindBy(id = "MANAGER_AUTHORIZATION_FRONT")
+    private WebElement authorizationFrontAttachmentButton2;
+
+    @FindBy(id = "MANAGER_AUTHORIZATION_BACK")
+    private WebElement authorizationBackAttachmentButton3;
+
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-up']")
+    private WebElement yesButton;
+    @FindBy(xpath = "//div[@class='swal2-success-ring']")
+    private WebElement successRingIcon;
+    @FindBy(id = "CN")
+    private WebElement CN;
+
+    @FindBy(id = "checkAgree")
+    private WebElement agreementCheckbox;
+
+
 
     public void clickOnSignUpButton() {
 
@@ -100,4 +124,48 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(closeButton);
         closeButton.click();
     }
+
+    public void clickOnAttachmentsTabButton() {
+
+        functions.waitForElementToBeClickable(attachmentsTabButton);
+        attachmentsTabButton.click();
+    }
+
+    public void clickOnAttachmentsTabButton1() {
+
+        functions.waitForElementToBeClickable(crAttachmentsTabButton1);
+        crAttachmentsTabButton1.click();
+    }
+
+    public void clickOnAuthorizationFrontAttachmentButton2() {
+
+        functions.waitForElementToBeClickable(authorizationFrontAttachmentButton2);
+        authorizationFrontAttachmentButton2.click();
+    }
+
+    public void clickOnAuthorizationBackAttachmentButton3() {
+
+        functions.waitForElementToBeClickable(authorizationBackAttachmentButton3);
+        authorizationBackAttachmentButton3.click();
+    }
+    public void fillCRNNum(String plateNum) throws IOException {
+
+        functions.waitForElementToBeClickable(CN);
+        CN.sendKeys(plateNum);
+    }
+    public WebElement getSuccessRingIcon() {
+
+        functions.waitForElementToBeVisible(successRingIcon);
+        functions.waitForElementToBeClickable(successRingIcon);
+        return successRingIcon;
+    }
+    public void clickOnYesButton() {
+        functions.waitForElementToBeClickable(yesButton);
+        yesButton.click();
+    }
+    public void clickOnAgreementCheckbox() {
+        functions.waitForElementToBeClickable(agreementCheckbox);
+        agreementCheckbox.click();
+    }
+
 }
