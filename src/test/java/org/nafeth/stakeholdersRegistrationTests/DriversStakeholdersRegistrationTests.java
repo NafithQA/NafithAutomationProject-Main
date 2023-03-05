@@ -1,4 +1,4 @@
-package org.nafeth.stakeholdersRegistration;
+package org.nafeth.stakeholdersRegistrationTests;
 
 import org.nafeth.base.Configurations;
 import org.nafeth.helpers.Functions;
