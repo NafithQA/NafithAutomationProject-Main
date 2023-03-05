@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class ExternalDriversRegistration extends Configurations {
+public class DriversStakeholdersRegistrationTests extends Configurations {
 
     @Test(enabled = true)
     public void External_Drivers_Registration() throws IOException, InterruptedException {
@@ -33,5 +33,7 @@ public class ExternalDriversRegistration extends Configurations {
         stakeholdersRegistrationPage.clickOnResumeButton();
         commonLocators.clickOnYesButton();
     }
+
+    // Internal driver registration by all Stakeholders + Nafith role
 }
 
