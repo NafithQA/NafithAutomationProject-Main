@@ -32,7 +32,5 @@ public class ExternalDriversRegistration extends Configurations {
 
         stakeholdersRegistrationPage.clickOnResumeButton();
         commonLocators.clickOnYesButton();
-        // Test Assertion
-//        Assert.assertTrue(registrationPage.getSuccessRingIcon().isDisplayed());
     }
 }
