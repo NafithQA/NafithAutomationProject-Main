@@ -34,3 +34,4 @@ public class ExternalDriversRegistration extends Configurations {
         commonLocators.clickOnYesButton();
     }
 }
+
