@@ -27,6 +27,9 @@ public class StakeholdersRegistrationPage {
     @FindBy(xpath = "(//a[@class='col btn btn-outline-pink round'])[3]")
     private WebElement ownersAndDriversRegisterButton;
 
+    @FindBy(xpath = "(//a[@class='col btn btn-outline-pink round'])[2]")
+    private WebElement truckingCompaniesRegisterButton;
+
     @FindBy(id = "LICENSE_NATIONALITY_CODE_POPUP")
     private WebElement documentNationalityDropDownList;
 
@@ -67,6 +70,13 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "checkAgree")
     private WebElement agreementCheckbox;
+    @FindBy(id = "NAME")
+    private WebElement arabicNameField;
+    @FindBy(id = "NAME_EN")
+    private WebElement englishNameField;
+
+    @FindBy(id = "PRIMARY_EMAIL")
+    private WebElement emailField;
 
 
 
@@ -80,6 +90,12 @@ public class StakeholdersRegistrationPage {
 
         functions.waitForElementToBeClickable(ownersAndDriversRegisterButton);
         ownersAndDriversRegisterButton.click();
+    }
+
+    public void clickOnTruckingCompaniesRegisterButton() {
+
+        functions.waitForElementToBeClickable(truckingCompaniesRegisterButton);
+        truckingCompaniesRegisterButton.click();
     }
 
     public WebElement getDocumentNationalityDropDownList(){
@@ -136,22 +152,20 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(crAttachmentsTabButton1);
         crAttachmentsTabButton1.click();
     }
-
     public void clickOnAuthorizationFrontAttachmentButton2() {
 
         functions.waitForElementToBeClickable(authorizationFrontAttachmentButton2);
         authorizationFrontAttachmentButton2.click();
     }
-
     public void clickOnAuthorizationBackAttachmentButton3() {
 
         functions.waitForElementToBeClickable(authorizationBackAttachmentButton3);
         authorizationBackAttachmentButton3.click();
     }
-    public void fillCRNNum(String plateNum) throws IOException {
+    public void fillCRNNum(String CRNNum) throws IOException {
 
         functions.waitForElementToBeClickable(CN);
-        CN.sendKeys(plateNum);
+        CN.sendKeys(CRNNum);
     }
     public WebElement getSuccessRingIcon() {
 
@@ -167,5 +181,19 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(agreementCheckbox);
         agreementCheckbox.click();
     }
+     public void fillEmail(String emailFields) throws IOException {
 
+        functions.waitForElementToBeClickable(emailField);
+        emailField.sendKeys(emailFields);
+    }
+    public void fillArabicName(String arabicNameFields) throws IOException {
+
+        functions.waitForElementToBeClickable(arabicNameField);
+        arabicNameField.sendKeys(arabicNameFields);
+    }
+    public void fillEnglishName(String englishNameFields) throws IOException {
+
+        functions.waitForElementToBeClickable(englishNameField);
+        englishNameField.sendKeys(englishNameFields);
+    }
 }
