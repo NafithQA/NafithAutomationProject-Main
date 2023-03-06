@@ -193,6 +193,7 @@ public class Functions extends Configurations {
         return Long.parseLong(new String(digits));
     }
 
+
     public String generateRandomDate(String dateTime) {
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -251,4 +252,29 @@ public class Functions extends Configurations {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
     }
+
+    public String getRandomEmailString() {
+        String RansomEmail = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * RansomEmail.length());
+            salt.append(RansomEmail.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
+    public String getRandomName() {
+        String RansomEmail = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * RansomEmail.length());
+            salt.append(RansomEmail.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
 }
