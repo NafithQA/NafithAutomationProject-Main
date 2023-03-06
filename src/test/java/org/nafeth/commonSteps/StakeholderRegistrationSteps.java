@@ -49,18 +49,18 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         String CRN = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillCRNNum(CRN);
-        Thread.sleep(750);
-
+        String ArabicName = String.valueOf("تسجيل شركة نقل AR" + functions.getRandomName());
+        stakeholdersRegistrationPage.fillArabicName(ArabicName);
+        String EnglishName = String.valueOf("Automation Trucking Companies EN " + functions.getRandomName());
+        stakeholdersRegistrationPage.fillEnglishName(EnglishName);
+        String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
+        stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
+        String Email = String.valueOf(functions.getRandomEmailString()+"@gmail.com");
+        stakeholdersRegistrationPage.fillEmail(Email);
         Thread.sleep(1000);
-
-
         functions.scrollIntoElement(commonLocators.getCreateButton());
-
         functions.scrollThePageUp();
-
     }
-
-
     public void uploadTruckingCompaniesRegistrationAttachments() throws InterruptedException, IOException {
 
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -96,6 +96,4 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         stakeholdersRegistrationPage.clickOnYesButton();
     }
-
-
 }
