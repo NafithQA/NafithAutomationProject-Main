@@ -116,18 +116,28 @@ public class HomePage {
 
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement carsRegistrationPageButton;
+
     @FindBy(id = "main-menu-navigation")
     private WebElement mainNavigationMenu;
 
     @FindBy(xpath = "//div[@class='app-content content']")
     private WebElement mainAppContent;
+
     @FindBy(xpath = "//i[@class='ft-shuffle menu-text-margin']")
     private WebElement registrationStakeholderMenu;
+
     @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[2]")
     private WebElement truckingCompaniesRegistrationMenu;
 
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement truckingCompaniesRegistrationPageButton;
+
+    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[1]")
+    private WebElement investorsRegistrationMenu;
+
+    @FindBy(xpath = "(//li[@class='is-shown'])[2]")
+    private WebElement investorsRegistrationPageButton;
+
 
     public void clickOnMainMenuButton() {
 
@@ -391,12 +401,19 @@ public class HomePage {
         functions.waitForElementToBeClickable(truckingCompaniesRegistrationMenu);
         truckingCompaniesRegistrationMenu.click();
     }
-
-
+    public void clickOnInvestorsRegistrationMenu() {
+        functions.waitForElementToBeClickable(investorsRegistrationMenu);
+        investorsRegistrationMenu.click();
+    }
     public void clickOnTruckingCompaniesRegistrationPageButton() {
 
         functions.waitForElementToBeVisible(truckingCompaniesRegistrationPageButton);
         truckingCompaniesRegistrationPageButton.click();
+    }
+    public void clickOnInvestorsRegistrationPageButton() {
+
+        functions.waitForElementToBeVisible(investorsRegistrationPageButton);
+        investorsRegistrationPageButton.click();
     }
 
 }
