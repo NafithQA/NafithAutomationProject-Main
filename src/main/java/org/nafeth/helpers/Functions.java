@@ -277,4 +277,16 @@ public class Functions extends Configurations {
         return saltStr;
     }
 
+    public String getRandomInvestorName() {
+        String RansomEmail = "qwertyuioasdfghjklzxcvbnm";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * RansomEmail.length());
+            salt.append(RansomEmail.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
 }
