@@ -1,6 +1,5 @@
 package org.nafeth.stakeholdersRegistrationTests;
 
-
 import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.StakeholderRegistrationSteps;
@@ -11,10 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-
 public class InvestorsStakeholdersRegistrationTests  extends Configurations {
-
-
     @Test(enabled = false)
     public void Investors_External_Registration() throws IOException, InterruptedException {
 
