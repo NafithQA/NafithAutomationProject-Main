@@ -3,7 +3,7 @@ package org.nafeth.stakeholdersRegistrationTests;
 import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.StakeholderRegistrationSteps;
-import org.nafeth.helpers.Functions; 
+import org.nafeth.helpers.Functions;
 import org.nafeth.pageModels.StakeholdersRegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,7 +32,7 @@ public class TruckingCompaniesStakeholdersRegistrationTests extends Configuratio
         stakeholderRegistrationSteps.fillInTruckingCompaniesRegistrationInfo();
 
         // Upload Attachments
-        stakeholderRegistrationSteps.uploadTruckingCompaniesRegistrationAttachments();
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
 
         // Check the Agreement
         stakeholdersRegistrationPage.clickOnAgreementCheckbox();
@@ -64,7 +64,7 @@ public class TruckingCompaniesStakeholdersRegistrationTests extends Configuratio
         stakeholderRegistrationSteps.fillInTruckingCompaniesRegistrationInfo();
 
          // Upload Attachments
-        stakeholderRegistrationSteps.uploadTruckingCompaniesRegistrationAttachments();
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
 
          // Proceed with Final Registration Steps
          stakeholderRegistrationSteps.proceedWithFinalRegistrationSteps();
