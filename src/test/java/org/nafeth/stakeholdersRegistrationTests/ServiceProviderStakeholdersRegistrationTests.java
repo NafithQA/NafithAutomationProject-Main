@@ -4,15 +4,18 @@ import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.StakeholderRegistrationSteps;
 import org.nafeth.helpers.Functions;
+import org.nafeth.pageModels.CommonLocators;
 import org.nafeth.pageModels.StakeholdersRegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class InvestorsStakeholdersRegistrationTests  extends Configurations {
+import static org.nafeth.base.Configurations.driver;
+
+public class ServiceProviderStakeholdersRegistrationTests extends Configurations {
     @Test(enabled = true)
-    public void Investors_External_Registration() throws IOException, InterruptedException {
+    public void ServiceProvider_External_Registration() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -24,14 +27,11 @@ public class InvestorsStakeholdersRegistrationTests  extends Configurations {
         // Sign Up Button
         stakeholdersRegistrationPage.clickOnSignUpButton();
 
-        // click On Investors Register
-        stakeholdersRegistrationPage.clickOnInvestorsRegisterButton();
+        // click On Service Provider Register
+        stakeholdersRegistrationPage.clickOnServiceProviderRegisterButton();
 
-        // Fill-In Investors Registration Info
-        stakeholderRegistrationSteps.fillInInvestorsRegistrationInfo();
-
-        // Fill-In  Parking Capacity tab
-        stakeholderRegistrationSteps.fillParkingCapacityRegistrationInfo();
+        // Fill-In Service Provider Registration Info
+        stakeholderRegistrationSteps.fillInServiceProviderRegistrationInfo();
 
         // Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
@@ -47,7 +47,7 @@ public class InvestorsStakeholdersRegistrationTests  extends Configurations {
     }
 
     @Test(enabled = true)
-    public void Investors_Internal_Registration() throws IOException, InterruptedException {
+    public void ServiceProvider_Internal_Registration() throws IOException, InterruptedException {
 
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -59,14 +59,11 @@ public class InvestorsStakeholdersRegistrationTests  extends Configurations {
         // Navigate to Stakeholder Registration Menu
         stakeholderRegistrationSteps.navigateToStakeholderRegistrationMenu();
 
-        // Navigate to Investors Registration Menu
-        stakeholderRegistrationSteps.navigateToInvestorsRegistrationMenu();
+        // Navigate to Service Provider Registration Menu
+        stakeholderRegistrationSteps.navigateToServiceProviderRegistrationMenu();
 
-        // Fill-In Investors Registration Info
-        stakeholderRegistrationSteps.fillInInvestorsRegistrationInfo();
-
-        // Fill-In  Parking Capacity tab
-        stakeholderRegistrationSteps.fillParkingCapacityRegistrationInfo();
+        // Fill-In Service Provider Registration Info
+        stakeholderRegistrationSteps.fillInServiceProviderRegistrationInfo();
 
         // Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
@@ -78,3 +75,4 @@ public class InvestorsStakeholdersRegistrationTests  extends Configurations {
         Assert.assertTrue(stakeholdersRegistrationPage.getSuccessRingIcon().isDisplayed());
     }
 }
+

@@ -132,11 +132,15 @@ public class HomePage {
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement truckingCompaniesRegistrationPageButton;
 
+    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[3]")
+    private WebElement serviceProviderRegistrationMenu;
+
     @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[1]")
     private WebElement investorsRegistrationMenu;
-
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement investorsRegistrationPageButton;
+    @FindBy(xpath = "(//li[@class='is-shown'])[2]")
+    private WebElement serviceProviderRegistrationPageButton;
 
     @FindBy(xpath = "(//li[@class='has-sub level-2 is-shown'])[1]")
     private WebElement driverOwnerRegistrationMenu;
@@ -413,6 +417,10 @@ public class HomePage {
         functions.waitForElementToBeClickable(investorsRegistrationMenu);
         investorsRegistrationMenu.click();
     }
+    public void clickOnServiceProviderRegistrationMenu() {
+        functions.waitForElementToBeClickable(serviceProviderRegistrationMenu);
+        serviceProviderRegistrationMenu.click();
+    }
     public void clickOnTruckingCompaniesRegistrationPageButton() {
 
         functions.waitForElementToBeVisible(truckingCompaniesRegistrationPageButton);
@@ -422,6 +430,11 @@ public class HomePage {
 
         functions.waitForElementToBeVisible(investorsRegistrationPageButton);
         investorsRegistrationPageButton.click();
+    }
+    public void clickOnServiceProviderRegistrationPageButton() {
+
+        functions.waitForElementToBeVisible(serviceProviderRegistrationPageButton);
+        serviceProviderRegistrationPageButton.click();
     }
 
     public void clickOnDriverOwnerRegistrationMenu() {

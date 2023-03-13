@@ -266,24 +266,24 @@ public class Functions extends Configurations {
     }
 
     public String getRandomName() {
-        String RansomEmail = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String RansomName = "ABCDEFGHIJKLMNOPQRSTUVWXYafhgsdkjdsl";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * RansomEmail.length());
-            salt.append(RansomEmail.charAt(index));
+            int index = (int) (rnd.nextFloat() * RansomName.length());
+            salt.append(RansomName.charAt(index));
         }
         String saltStr = salt.toString();
         return saltStr;
     }
 
     public String getRandomInvestorName() {
-        String RansomEmail = "qwertyuioasdfghjklzxcvbnm";
+        String RansomName = "qwertyuioasdfghjklzxcvbnmASJHKJAHKH";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * RansomEmail.length());
-            salt.append(RansomEmail.charAt(index));
+            int index = (int) (rnd.nextFloat() * RansomName.length());
+            salt.append(RansomName.charAt(index));
         }
         String saltStr = salt.toString();
         return saltStr;

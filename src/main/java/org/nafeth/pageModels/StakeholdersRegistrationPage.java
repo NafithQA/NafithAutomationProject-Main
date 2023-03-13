@@ -30,6 +30,9 @@ public class StakeholdersRegistrationPage {
     @FindBy(xpath = "(//a[@class='col btn btn-outline-pink round'])[2]")
     private WebElement truckingCompaniesRegisterButton;
 
+    @FindBy(xpath = "(//a[@class='col btn btn-outline-pink round'])[1]")
+    private WebElement serviceProviderRegisterButton;
+
     @FindBy(xpath = "(//a[@class='btn btn-outline-pink round'])")
     private WebElement investorsRegisterButton;
 
@@ -96,6 +99,7 @@ public class StakeholdersRegistrationPage {
     @FindBy(id = "LICENSE_TYPE")
     private WebElement typeOfActivityLicenseDropDownList;
 
+
     @FindBy(id = "WORKING_HOURS")
     private WebElement workingHoursDropDownList;
 
@@ -155,6 +159,15 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "ATTACHMENT-TAB")
     private WebElement attachmentTab;
+    @FindBy(id = "WORK_PERMIT_NUMBER")
+    private WebElement workPermitNoField;
+
+    @FindBy(id = "WORK_PERMIT_TYPE")
+    private WebElement workPermitTypeDropDownList;
+
+    @FindBy(id = "PERSONAL_DOCUMENT_TYPE")
+    private WebElement personalDocumentTypeDropDownList;
+
 
     public void clickOnSignUpButton() {
 
@@ -178,6 +191,11 @@ public class StakeholdersRegistrationPage {
 
         functions.waitForElementToBeClickable(investorsRegisterButton);
         investorsRegisterButton.click();
+    }
+    public void clickOnServiceProviderRegisterButton() {
+
+        functions.waitForElementToBeClickable(serviceProviderRegisterButton);
+        serviceProviderRegisterButton.click();
     }
 
     public WebElement getDocumentNationalityDropDownList(){
@@ -265,7 +283,6 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(successRingIcon);
         return successRingIcon;
     }
-
     public void clickOnYesButton() {
         functions.waitForElementToBeClickable(yesButton);
         yesButton.click();
@@ -298,6 +315,18 @@ public class StakeholdersRegistrationPage {
 
         functions.waitForElementToBeClickable(activityLicenseNo);
         activityLicenseNo.sendKeys(activityLicense);
+    }
+    public void fillWorkPermitNo(String workPermitNo) throws IOException {
+
+        functions.waitForElementToBeClickable(workPermitNoField);
+        workPermitNoField.sendKeys(workPermitNo);
+    }
+
+    public WebElement getWorkPermitTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(workPermitTypeDropDownList);
+        functions.waitForElementToBeClickable(workPermitTypeDropDownList);
+        return workPermitTypeDropDownList;
     }
 
     public WebElement getTypeOfActivityLicenseDropDownList() {
@@ -402,6 +431,15 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(carsParkingCapacityField);
         return carsParkingCapacityField;
     }
+    public WebElement getPersonalDocumentTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(personalDocumentTypeDropDownList);
+        functions.waitForElementToBeClickable(personalDocumentTypeDropDownList);
+        return personalDocumentTypeDropDownList;
+    }
+
+
+
 
     public WebElement getIdDocumentTypeDropDownList_Internal() {
 

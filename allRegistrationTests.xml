@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" skipfailedinvocationcounts="true">
-
     <listeners>
         <listener class-name="org.nafeth.helpers.ExtentReporterNG"/>
         <listener class-name="org.nafeth.helpers.Listeners"/>
@@ -16,6 +15,10 @@
             <class name="org.nafeth.fleetRegistrationTests.InvestorFleetRegistrationTests"/>
             <class name="org.nafeth.stakeholdersRegistrationTests.DriversStakeholdersRegistrationTests"/>
             <class name="org.nafeth.stakeholdersRegistrationTests.TruckingCompaniesStakeholdersRegistrationTests"/>
+            <class name="org.nafeth.stakeholdersRegistrationTests.InvestorsStakeholdersRegistrationTests"/>
+            <class name="org.nafeth.stakeholdersRegistrationTests.ServiceProviderStakeholdersRegistrationTests"/>
+
+
         </classes>
     </test>
 </suite>
