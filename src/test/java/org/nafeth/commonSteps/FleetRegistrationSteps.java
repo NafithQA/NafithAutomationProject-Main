@@ -30,6 +30,36 @@ public class FleetRegistrationSteps {
         functions.scrollThePageDown();
     }
 
+    public void navigateToDriverOwnerRegistrationMenu() throws InterruptedException {
+
+        Functions functions = new Functions();
+        HomePage homePage = new HomePage(driver);
+
+        homePage.clickOnMainMenuButton();
+        functions.moveToElement(homePage.getMainNavigationMenu());
+        homePage.clickOnRegistrationSystemMenu();
+        functions.scrollThePageDown();
+        Thread.sleep(1000);
+        homePage.clickOnDriverOwnerRegistrationMenu();
+        homePage.clickOnDriversRegistrationPageButton();
+        Thread.sleep(2000);
+    }
+
+    public void navigateToDriverOwnerRegistrationMenu_Investor() throws InterruptedException {
+
+        Functions functions = new Functions();
+        HomePage homePage = new HomePage(driver);
+
+        homePage.clickOnMainMenuButton();
+        functions.moveToElement(homePage.getMainNavigationMenu());
+        homePage.clickOnRegistrationSystemMenu();
+        functions.scrollThePageDown();
+        Thread.sleep(1000);
+        homePage.clickOnDriverOwnerRegistrationMenu_Investor();
+        homePage.clickOnDriversRegistrationPageButton();
+        Thread.sleep(2000);
+    }
+
     public void navigateToTrucksRegistrationMenu() throws InterruptedException {
 
         Functions functions = new Functions();
@@ -526,7 +556,6 @@ public class FleetRegistrationSteps {
 
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
-        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
         functions.scrollThePageDown();
         functions.scrollIntoElementAndClickOnIt(commonLocators.getCreateButton());
