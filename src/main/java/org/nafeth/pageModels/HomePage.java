@@ -138,6 +138,14 @@ public class HomePage {
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement investorsRegistrationPageButton;
 
+    @FindBy(xpath = "(//li[@class='has-sub level-2 is-shown'])[1]")
+    private WebElement driverOwnerRegistrationMenu;
+
+    @FindBy(xpath = "(//li[@class='is-shown'])[2]")
+    private WebElement driversRegistrationPageButton;
+
+    @FindBy(xpath = "(//li[@class='has-sub level-2 is-shown'])[2]")
+    private WebElement driverOwnerRegistrationMenu_Investor;
 
     public void clickOnMainMenuButton() {
 
@@ -416,4 +424,21 @@ public class HomePage {
         investorsRegistrationPageButton.click();
     }
 
+    public void clickOnDriverOwnerRegistrationMenu() {
+
+        functions.waitForElementToBeVisible(driverOwnerRegistrationMenu);
+        driverOwnerRegistrationMenu.click();
+    }
+
+    public void clickOnDriversRegistrationPageButton() {
+
+        functions.waitForElementToBeVisible(driversRegistrationPageButton);
+        driversRegistrationPageButton.click();
+    }
+
+    public void clickOnDriverOwnerRegistrationMenu_Investor() {
+
+        functions.waitForElementToBeVisible(driverOwnerRegistrationMenu_Investor);
+        driverOwnerRegistrationMenu_Investor.click();
+    }
 }
