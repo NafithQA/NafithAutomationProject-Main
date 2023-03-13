@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class InvestorsStakeholdersRegistrationTests  extends Configurations {
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void Investors_External_Registration() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
