@@ -41,8 +41,6 @@ public class StakeholderRegistrationSteps {
         homePage.clickOnTruckingCompaniesRegistrationPageButton();
         Thread.sleep(1000);
     }
-
-
     public void navigateToInvestorsRegistrationMenu() throws InterruptedException {
 
         Functions functions = new Functions();
@@ -52,6 +50,17 @@ public class StakeholderRegistrationSteps {
         functions.scrollThePageDown();
         functions.moveToElement(homePage.getMainAppContent());
         homePage.clickOnInvestorsRegistrationPageButton();
+        Thread.sleep(1000);
+    }
+    public void navigateToServiceProviderRegistrationMenu() throws InterruptedException {
+
+        Functions functions = new Functions();
+        HomePage homePage = new HomePage(driver);
+
+        homePage.clickOnServiceProviderRegistrationMenu();
+        functions.scrollThePageDown();
+        functions.moveToElement(homePage.getMainAppContent());
+        homePage.clickOnServiceProviderRegistrationPageButton();
         Thread.sleep(1000);
     }
 
@@ -102,6 +111,51 @@ public class StakeholderRegistrationSteps {
         String Address = String.valueOf("Address" + functions.getRandomName());
         stakeholdersRegistrationPage.fillAddress(Address);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getDocumentTypeDropDownList(), 2);
+        String nN = String.valueOf(functions.generateRandomNumber(15));
+        stakeholdersRegistrationPage.fillNn(nN);
+        Thread.sleep(1000);
+        String FirstName = String.valueOf("First" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillFirstName(FirstName);
+        String FatherName = String.valueOf("Second" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillFatherName(FatherName);
+        String Grandfather = String.valueOf("Third" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillGrandfatherName(Grandfather);
+        String FamilyName = String.valueOf("Family" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillFamilyName(FamilyName);
+        String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
+        stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
+        Thread.sleep(1000);
+        String Email = String.valueOf(functions.getRandomEmailString()+"@gmail.com");
+        stakeholdersRegistrationPage.fillEmail(Email);
+        Thread.sleep(1000);
+        functions.scrollThePageUp();
+    }
+
+    public void fillInServiceProviderRegistrationInfo() throws IOException, InterruptedException {
+
+        Functions functions = new Functions();
+        CommonLocators commonLocators = new CommonLocators(driver);
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        Thread.sleep(750);
+        String CRN = String.valueOf(functions.generateRandomNumber(8));
+        stakeholdersRegistrationPage.fillCRNInvestor(CRN);
+        String ArabicName = String.valueOf("مزود خدمة أتوميشن بالعربي" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillArabicName(ArabicName);
+        String EnglishName = String.valueOf("AutoServiceProviderEN_" + functions.getRandomInvestorName());
+        stakeholdersRegistrationPage.fillEnglishName(EnglishName);
+        Thread.sleep(750);
+        String workPermitNo  = String.valueOf(functions.generateRandomNumber(15));
+        stakeholdersRegistrationPage.fillWorkPermitNo(workPermitNo);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getWorkPermitTypeDropDownList(), 1);
+        Thread.sleep(1000);
+        functions.scrollIntoElement(commonLocators.getCreateButton());
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getIndustrialAreaDropDownList(), 2);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getGovernorateDropDownList(), 2);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getStateDropDownList(), 2);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getCityDropDownList(), 2);
+        String Address = String.valueOf("Address" + functions.getRandomName());
+        stakeholdersRegistrationPage.fillAddress(Address);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getPersonalDocumentTypeDropDownList(), 2);
         String nN = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillNn(nN);
         Thread.sleep(1000);
