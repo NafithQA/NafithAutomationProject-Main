@@ -347,8 +347,8 @@ public class HomePage {
         trailersRegistrationPageButton.click();
     }
 
-    public WebElement getTrailersRegistrationPagesssButton() {
-
+    public WebElement getTrailersRegistrationPageButton() {
+    
         functions.waitForElementToBeVisible(trailersRegistrationPageButton);
         return trailersRegistrationPageButton;
     }
