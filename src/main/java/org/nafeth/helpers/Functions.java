@@ -266,7 +266,7 @@ public class Functions extends Configurations {
     }
 
     public String getRandomName() {
-        String RansomName = "ABCDEFGHIJKLMNOPQRSTUVWXYafhgsdkjdsl";
+        String RansomName = "yuioasdfghjklzxcvbnm";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
@@ -278,7 +278,7 @@ public class Functions extends Configurations {
     }
 
     public String getRandomInvestorName() {
-        String RansomName = "qwertyuioasdfghjklzxcvbnmASJHKJAHKH";
+        String RansomName = "qwertyuioasdf";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
