@@ -12,10 +12,12 @@ import java.io.IOException;
 public class StakeholderRegistrationSteps {
 
     WebDriver driver;
+    String idDocumentNumber;
 
     public StakeholderRegistrationSteps(WebDriver driver) {
         this.driver = driver;
     }
+
     public void navigateToStakeholderRegistrationMenu() throws InterruptedException {
 
         Functions functions = new Functions();
@@ -41,6 +43,8 @@ public class StakeholderRegistrationSteps {
         homePage.clickOnTruckingCompaniesRegistrationPageButton();
         Thread.sleep(1000);
     }
+
+
     public void navigateToInvestorsRegistrationMenu() throws InterruptedException {
 
         Functions functions = new Functions();
@@ -78,7 +82,7 @@ public class StakeholderRegistrationSteps {
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
         String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
         stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
-        String Email = String.valueOf(functions.getRandomEmailString()+"@gmail.com");
+        String Email = String.valueOf(functions.getRandomEmailString() + "@gmail.com");
         stakeholdersRegistrationPage.fillEmail(Email);
         Thread.sleep(1000);
         functions.scrollIntoElement(commonLocators.getCreateButton());
@@ -98,7 +102,7 @@ public class StakeholderRegistrationSteps {
         String EnglishName = String.valueOf("AutoInvestorsEN_" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
         Thread.sleep(750);
-        String activityLicenseNo  = String.valueOf(functions.generateRandomNumber(15));
+        String activityLicenseNo = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillActivityLicenseNo(activityLicenseNo);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getTypeOfActivityLicenseDropDownList(), 1);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getWorkingHoursDropDownList(), 2);
@@ -125,7 +129,7 @@ public class StakeholderRegistrationSteps {
         String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
         stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
         Thread.sleep(1000);
-        String Email = String.valueOf(functions.getRandomEmailString()+"@gmail.com");
+        String Email = String.valueOf(functions.getRandomEmailString() + "@gmail.com");
         stakeholdersRegistrationPage.fillEmail(Email);
         Thread.sleep(1000);
         functions.scrollThePageUp();
@@ -178,17 +182,18 @@ public class StakeholderRegistrationSteps {
 
     public void fillParkingCapacityRegistrationInfo() {
 
-            Functions functions = new Functions();
-            StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        Functions functions = new Functions();
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
-            stakeholdersRegistrationPage.clickOnParkingCapacityInfoTab();
-            String trucksAvailableParkingCapacity = String.valueOf(functions.generateRandomNumber(4));
-            stakeholdersRegistrationPage.getTrucksAvailableParkingCapacityField().sendKeys(trucksAvailableParkingCapacity);
+        stakeholdersRegistrationPage.clickOnParkingCapacityInfoTab();
+        String trucksAvailableParkingCapacity = String.valueOf(functions.generateRandomNumber(4));
+        stakeholdersRegistrationPage.getTrucksAvailableParkingCapacityField().sendKeys(trucksAvailableParkingCapacity);
 
-            String CarsParkingCapacity = String.valueOf(functions.generateRandomNumber(4));
-            stakeholdersRegistrationPage.getCarsParkingCapacityField().sendKeys(CarsParkingCapacity);
+        String CarsParkingCapacity = String.valueOf(functions.generateRandomNumber(4));
+        stakeholdersRegistrationPage.getCarsParkingCapacityField().sendKeys(CarsParkingCapacity);
 
-        }
+    }
+
     public void uploadStakeholderRegistrationAttachments() throws InterruptedException, IOException {
 
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -213,6 +218,7 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(7000);
         functions.scrollThePageDown();
     }
+
     public void proceedWithFinalRegistrationSteps() throws InterruptedException {
 
         Functions functions = new Functions();
@@ -224,4 +230,71 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         stakeholdersRegistrationPage.clickOnYesButton();
     }
+
+    public void fillInExternalDriverRegistrationInfo() throws InterruptedException {
+
+        Functions functions = new Functions();
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getIdDocumentTypeDropDownList(), 2);
+        String idDocumentNumber = String.valueOf(functions.generateRandomNumber(15));
+        stakeholdersRegistrationPage.getIdDocumentNumberField().sendKeys(idDocumentNumber);
+        String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
+        stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getAreaCodeDropDownList(), 2);
+        Thread.sleep(3000);
+    }
+
+    public void fillInInternalDriverRegistrationInfo() throws InterruptedException {
+
+        Functions functions = new Functions();
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getIdDocumentTypeDropDownList_Internal(), 2);
+        idDocumentNumber = String.valueOf(functions.generateRandomNumber(15));
+        stakeholdersRegistrationPage.getIdDocumentNumberField().sendKeys(idDocumentNumber);
+        String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
+        stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
+        functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getAreaCodeDropDownList_Internal(), 2);
+        Thread.sleep(3000);
+    }
+
+    public void fillInLicenseInfo() {
+
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnLicenseInfoTab();
+        String licenseNumber = idDocumentNumber;
+        stakeholdersRegistrationPage.getLicenseNumberField().sendKeys(licenseNumber);
+    }
+
+    public void uploadDriversRegistrationAttachments() throws InterruptedException, IOException {
+
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+        Functions functions = new Functions();
+
+        fleetRegistrationPage.clickOnAttachmentsTabButton();
+        // Attachment 1
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton1();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 2
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton2();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 3
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton3();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 4
+        fleetRegistrationPage.clickOnAuthorizationAttachmentButton4();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+        Thread.sleep(7000);
+        functions.scrollThePageDown();
+    }
+
 }

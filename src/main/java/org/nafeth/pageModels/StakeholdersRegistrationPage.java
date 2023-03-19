@@ -95,8 +95,10 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "LICENSE_NUMBER")
     private WebElement activityLicenseNo;
+
     @FindBy(id = "LICENSE_TYPE")
     private WebElement typeOfActivityLicenseDropDownList;
+
 
     @FindBy(id = "WORKING_HOURS")
     private WebElement workingHoursDropDownList;
@@ -115,8 +117,10 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "ADDRESS")
     private WebElement addressField;
+
     @FindBy(id = "LICENSE_NATIONAL_TYPE")
     private WebElement documentTypeDropDownList;
+
     @FindBy(id = "NN")
     private WebElement nnField;
 
@@ -134,12 +138,27 @@ public class StakeholdersRegistrationPage {
 
     @FindBy(id = "CAPACITYINFO-TAB")
     private WebElement parkingCapacityInfoTab;
+
     @FindBy(id = "TRUCK_STAND")
     private WebElement trucksAvailableParkingCapacityField;
 
     @FindBy(id = "CAR_STAND")
     private WebElement carsParkingCapacityField;
 
+    @FindBy(id = "PERSONAL_DOCUMENT_TYPE")
+    private WebElement idDocumentTypeDropDownList_Internal;
+
+    @FindBy(id = "AREA_CODE")
+    private WebElement areaCodeDropDownList_Internal;
+
+    @FindBy(id = "LICENSEINFO-TAB")
+    private WebElement licenseInfoTab;
+
+    @FindBy(id = "LICENCE_NUMBER")
+    private WebElement licenseNumberField;
+
+    @FindBy(id = "ATTACHMENT-TAB")
+    private WebElement attachmentTab;
     @FindBy(id = "WORK_PERMIT_NUMBER")
     private WebElement workPermitNoField;
 
@@ -155,7 +174,9 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(signUpButton);
         signUpButton.click();
     }
+
     public void clickOnOwnersAndDriversRegisterButton() {
+
         functions.waitForElementToBeClickable(ownersAndDriversRegisterButton);
         ownersAndDriversRegisterButton.click();
     }
@@ -231,16 +252,19 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(crAttachmentsTabButton1);
         crAttachmentsTabButton1.click();
     }
+
     public void clickOnAuthorizationFrontAttachmentButton2() {
 
         functions.waitForElementToBeClickable(authorizationFrontAttachmentButton2);
         authorizationFrontAttachmentButton2.click();
     }
+
     public void clickOnAuthorizationBackAttachmentButton3() {
 
         functions.waitForElementToBeClickable(authorizationBackAttachmentButton3);
         authorizationBackAttachmentButton3.click();
     }
+
     public void fillCRNNum(String CRNNum) throws IOException {
 
         functions.waitForElementToBeClickable(CN);
@@ -263,25 +287,30 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(yesButton);
         yesButton.click();
     }
+
     public void clickOnAgreementCheckbox() {
         functions.waitForElementToBeClickable(agreementCheckbox);
         agreementCheckbox.click();
     }
-     public void fillEmail(String emailFields) throws IOException {
+
+    public void fillEmail(String emailFields) throws IOException {
 
         functions.waitForElementToBeClickable(emailField);
         emailField.sendKeys(emailFields);
     }
+
     public void fillArabicName(String arabicNameFields) throws IOException {
 
         functions.waitForElementToBeClickable(arabicNameField);
         arabicNameField.sendKeys(arabicNameFields);
     }
+
     public void fillEnglishName(String englishNameFields) throws IOException {
 
         functions.waitForElementToBeClickable(englishNameField);
         englishNameField.sendKeys(englishNameFields);
     }
+
     public void fillActivityLicenseNo(String activityLicense) throws IOException {
 
         functions.waitForElementToBeClickable(activityLicenseNo);
@@ -306,12 +335,14 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(typeOfActivityLicenseDropDownList);
         return typeOfActivityLicenseDropDownList;
     }
+
     public WebElement getWorkingHoursDropDownList() {
 
         functions.waitForElementToBeVisible(workingHoursDropDownList);
         functions.waitForElementToBeClickable(workingHoursDropDownList);
         return workingHoursDropDownList;
     }
+
     public WebElement getIndustrialAreaDropDownList() {
 
         functions.waitForElementToBeVisible(industrialAreaDropDownList);
@@ -332,16 +363,18 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(stateDropDownList);
         return stateDropDownList;
     }
+
     public WebElement getCityDropDownList() {
 
         functions.waitForElementToBeVisible(cityDropDownList);
         functions.waitForElementToBeClickable(cityDropDownList);
         return cityDropDownList;
     }
-     public void fillAddress(String address) throws IOException {
+
+    public void fillAddress(String address) throws IOException {
 
         functions.waitForElementToBeClickable(addressField);
-         addressField.sendKeys(address);
+        addressField.sendKeys(address);
     }
 
     public WebElement getDocumentTypeDropDownList() {
@@ -350,6 +383,7 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(documentTypeDropDownList);
         return documentTypeDropDownList;
     }
+
     public void fillNn(String documentType) throws IOException {
 
         functions.waitForElementToBeClickable(nnField);
@@ -361,16 +395,19 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(firstNameFields);
         firstNameFields.sendKeys(FirstName);
     }
+
     public void fillFatherName(String fatherName) throws IOException {
 
         functions.waitForElementToBeClickable(fatherNameFields);
         fatherNameFields.sendKeys(fatherName);
     }
-    public void fillGrandfatherName(String  grandfatherName) throws IOException {
+
+    public void fillGrandfatherName(String grandfatherName) throws IOException {
 
         functions.waitForElementToBeClickable(grandfatherNameFields);
-        grandfatherNameFields.sendKeys( grandfatherName);
+        grandfatherNameFields.sendKeys(grandfatherName);
     }
+
     public void fillFamilyName(String familyName) throws IOException {
 
         functions.waitForElementToBeClickable(familyNameFields);
@@ -383,10 +420,11 @@ public class StakeholdersRegistrationPage {
         parkingCapacityInfoTab.click();
     }
 
-     public WebElement getTrucksAvailableParkingCapacityField() {
+    public WebElement getTrucksAvailableParkingCapacityField() {
         functions.waitForElementToBeClickable(trucksAvailableParkingCapacityField);
         return trucksAvailableParkingCapacityField;
     }
+
     public WebElement getCarsParkingCapacityField() {
 
         functions.waitForElementToBeVisible(carsParkingCapacityField);
@@ -402,4 +440,37 @@ public class StakeholdersRegistrationPage {
 
 
 
+
+    public WebElement getIdDocumentTypeDropDownList_Internal() {
+
+        functions.waitForElementToBeVisible(idDocumentTypeDropDownList_Internal);
+        functions.waitForElementToBeClickable(idDocumentTypeDropDownList_Internal);
+        return idDocumentTypeDropDownList_Internal;
+    }
+
+    public WebElement getAreaCodeDropDownList_Internal() {
+
+        functions.waitForElementToBeVisible(areaCodeDropDownList_Internal);
+        functions.waitForElementToBeClickable(areaCodeDropDownList_Internal);
+        return areaCodeDropDownList_Internal;
+    }
+
+    public void clickOnLicenseInfoTab() {
+
+        functions.waitForElementToBeClickable(licenseInfoTab);
+        licenseInfoTab.click();
+    }
+
+    public WebElement getLicenseNumberField() {
+
+        functions.waitForElementToBeVisible(licenseNumberField);
+        functions.waitForElementToBeClickable(licenseNumberField);
+        return licenseNumberField;
+    }
+
+    public void clickOnAttachmentTab() {
+
+        functions.waitForElementToBeClickable(attachmentTab);
+        attachmentTab.click();
+    }
 }
