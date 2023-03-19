@@ -72,7 +72,7 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         String CRN = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillCRNNum(CRN);
-        String ArabicName = String.valueOf(" شركة نقل أتوميشن بالعربي" + functions.getRandomName());
+        String ArabicName = String.valueOf(" شركة_أتوميشن_بالعربي" + functions.getRandomName());
         stakeholdersRegistrationPage.fillArabicName(ArabicName);
         String EnglishName = String.valueOf("Automation Trucking Companies EN " + functions.getRandomName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
@@ -93,7 +93,7 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         String CRN = String.valueOf(functions.generateRandomNumber(8));
         stakeholdersRegistrationPage.fillCRNInvestor(CRN);
-        String ArabicName = String.valueOf("مستثمر أتوميشن بالعربي" + functions.getRandomInvestorName());
+        String ArabicName = String.valueOf("مستثمر_أتوميشن_بالعربي" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillArabicName(ArabicName);
         String EnglishName = String.valueOf("AutoInvestorsEN_" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
@@ -139,7 +139,7 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         String CRN = String.valueOf(functions.generateRandomNumber(8));
         stakeholdersRegistrationPage.fillCRNInvestor(CRN);
-        String ArabicName = String.valueOf("مزود خدمة أتوميشن بالعربي" + functions.getRandomInvestorName());
+        String ArabicName = String.valueOf("مزود_خدمة_أتوميشن_بالعربي" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillArabicName(ArabicName);
         String EnglishName = String.valueOf("AutoServiceProviderEN_" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
