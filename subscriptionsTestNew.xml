@@ -9,9 +9,9 @@
 
     <test name="Subscriptions Regression Test" preserve-order="true">
         <classes>
-<!--            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_TruckingCompanies"/>-->
+            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_TruckingCompanies"/>
             <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_Drivers"/>
-<!--            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_ServiceProviders"/>-->
+            <class name="org.nafeth.subscriptionsTests.SubscriptionsTests_ServiceProviders"/>
         </classes>
     </test>
 </suite>
