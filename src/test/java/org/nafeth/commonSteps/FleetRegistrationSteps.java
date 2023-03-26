@@ -561,5 +561,6 @@ public class FleetRegistrationSteps {
         functions.scrollIntoElementAndClickOnIt(commonLocators.getCreateButton());
         Thread.sleep(750);
         commonLocators.clickOnYesButton();
+        Thread.sleep(60000);
     }
 }
