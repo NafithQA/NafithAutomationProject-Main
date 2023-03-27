@@ -229,6 +229,7 @@ public class StakeholderRegistrationSteps {
         functions.scrollIntoElementAndClickOnIt(commonLocators.getCreateButton());
         Thread.sleep(750);
         stakeholdersRegistrationPage.clickOnYesButton();
+        Thread.sleep(60000);
     }
 
     public void fillInExternalDriverRegistrationInfo() throws InterruptedException {
