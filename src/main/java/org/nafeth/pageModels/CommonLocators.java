@@ -68,6 +68,12 @@ public class CommonLocators {
     @FindBy(id = "checkAgree")
     private WebElement agreementCheckbox;
 
+    @FindBy(id = "BU0002_btn")
+    private WebElement BusPackageChooseButton;
+
+    @FindBy(xpath = "//a[@href='#finish']")
+    private WebElement payButton;
+
     public void clickOnYesButton() {
 
         functions.waitForElementToBeClickable(yesButton);
@@ -141,6 +147,13 @@ public class CommonLocators {
         firstAvailablePackageChooseButtonOO.click();
     }
 
+    public void clickOnBusPackageChooseButton() {
+
+        functions.waitForElementToBeClickable(BusPackageChooseButton);
+        BusPackageChooseButton.click();
+    }
+
+
     public void clickOnFirstAvailablePackageChooseButtonSP() {
 
         functions.waitForElementToBeClickable(firstAvailablePackageChooseButtonSP);
@@ -174,5 +187,11 @@ public class CommonLocators {
 
         functions.waitForElementToBeClickable(createButton);
         createButton.click();
+    }
+
+    public WebElement getPayButton() {
+
+        functions.waitForElementToBeClickable(payButton);
+        return payButton;
     }
 }
