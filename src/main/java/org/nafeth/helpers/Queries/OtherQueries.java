@@ -2,11 +2,21 @@ package org.nafeth.helpers.Queries;
 
 public class OtherQueries {
 
+    public static String dynamicRnnQuery(String amount) {
+
+        String query = "SELECT TOP (1000) [receipt_id]\n" +
+                "              FROM POS_TRANSACTIONS\n" +
+                "               where  status_code    in ( 'PENDING')\n" +
+                "              and created_by = 1\n" +
+                "              and amount = " + amount + "";
+        return query;
+    }
+
     public static String validRnnQuery = "SELECT TOP (1000) [receipt_id]\n" +
-            "  FROM [OmanTCS_QA].[dbo].[POS_TRANSACTIONS]\n" +
-            "   where  status_code    in ( 'PENDING') \n" +
-            "  and created_by = 1\n" +
-            "  and amount = 35";
+            "              FROM POS_TRANSACTIONS\n" +
+            "               where  status_code    in ( 'PENDING')\n" +
+            "              and created_by = 1\n" +
+            "              and amount = 5";
 
     public static String testsInformationsQuery = "SELECT TOP (1000) [id]\n" +
             "      ,[test_scenario_id]\n" +
@@ -15,10 +25,10 @@ public class OtherQueries {
             "      ,[test_type]\n" +
             "  FROM [QA_MAMS].[dbo].[Package_Cases_multi_location]";
 
-    public static String paymentMethodsQuery(int paymentID){
+    public static String paymentMethodsQuery(int paymentID) {
 
         String paymentMethodsQuery = "SELECT  * \n" +
-                "  FROM [OmanTCS_QA].[dbo].[lt_payment_methods] WHERE id = "+paymentID+"";
+                "  FROM [OmanTCS_QA].[dbo].[lt_payment_methods] WHERE id = " + paymentID + "";
         return paymentMethodsQuery;
     }
 }
