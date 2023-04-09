@@ -20,7 +20,7 @@ public class SubscriptionTypePage {
     private WebElement packageOneMonth;
 
     @FindBy(xpath = "//select[@class='round border-warning']/option[1]")
-    private WebElement chooseAnyTruck;
+    private WebElement chooseAnyVehicle;
 
     @FindBy(xpath = "//div[@class='btn-group buttons']/button[2]")
     private WebElement selectOneTruckToSubscribe;
@@ -29,16 +29,27 @@ public class SubscriptionTypePage {
     private WebElement nextButton;
 
     @FindBy(id = "radio_5")
-    private WebElement frombalanceOption;
+    private WebElement fromBalanceOption;
+
+    @FindBy(id = "radio_3")
+    private WebElement fromVISAOption;
 
     @FindBy(id = "checkAgree")
     private WebElement agreementCheckbox;
 
-    @FindBy(xpath = "//div[@class='swal2-actions']/button[1]")
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-down']")
     private WebElement successRingIcon;
-
     @FindBy(xpath = "//a[@href='#finish']")
     private WebElement payButton;
+
+    @FindBy(id = "BU00021_btn")
+    private WebElement packageBusOneWeek;
+
+    @FindBy(id = "radio_6")
+    private WebElement fromPOSOption;
+
+    @FindBy(id = "RECEIPT_ID")
+    private WebElement receiptIdField;
 
     public WebElement getIndustrialEstateDropDownList() {
 
@@ -53,10 +64,10 @@ public class SubscriptionTypePage {
         packageOneMonth.click();
     }
 
-    public void clickOnchooseAnyTruck() {
+    public void clickOnChooseAnyVehicle() {
 
-        functions.waitForElementToBeClickable(chooseAnyTruck);
-        chooseAnyTruck.click();
+        functions.waitForElementToBeClickable(chooseAnyVehicle);
+        chooseAnyVehicle.click();
     }
 
     public void clickOnSelectOneTruckToSubscribe() {
@@ -78,10 +89,16 @@ public class SubscriptionTypePage {
         functions.waitForPageToLoad();
     }
 
-    public void selectBalanceoption() {
+    public void selectBalanceOption() {
 
-        functions.waitForElementToBeClickable(frombalanceOption);
-        frombalanceOption.click();
+        functions.waitForElementToBeClickable(fromBalanceOption);
+        fromBalanceOption.click();
+    }
+
+    public void selectVISAOption() {
+
+        functions.waitForElementToBeClickable(fromVISAOption);
+        fromVISAOption.click();
     }
 
     public void clickOnAgreementCheckbox() {
@@ -100,5 +117,24 @@ public class SubscriptionTypePage {
     public void clickOnPayButton() {
         functions.waitForElementToBeClickable(payButton);
         payButton.click();
+    }
+
+    public void clickOnPackageBusOneWeekButton() {
+
+        functions.waitForElementToBeClickable(packageBusOneWeek);
+        packageBusOneWeek.click();
+    }
+
+    public void selectPOSOption() {
+
+        functions.waitForElementToBeClickable(fromPOSOption);
+        fromPOSOption.click();
+    }
+
+    public WebElement getReceiptIdField() {
+
+        functions.waitForElementToBeVisible(receiptIdField);
+        functions.waitForElementToBeClickable(receiptIdField);
+        return receiptIdField;
     }
 }
