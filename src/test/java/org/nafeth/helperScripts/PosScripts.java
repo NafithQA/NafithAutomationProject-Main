@@ -6,6 +6,7 @@ import org.nafeth.pageModels.HomePage;
 import org.nafeth.pageModels.LoginPage;
 import org.nafeth.pageModels.PointOfSalesTransactionsPage;
 import org.nafeth.pageModels.SubscriptionsPage;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -14,13 +15,11 @@ import java.io.IOException;
 
 public class PosScripts extends Configurations {
 
-    @Parameters("language")
     @BeforeMethod(enabled = true)
-    public void testsPrerequisites(String languageChosen) throws IOException {
+    public void testsPrerequisites() throws IOException {
 
         Functions functions = new Functions();
         LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
 
         functions.navigateToQaURL();
 
@@ -28,17 +27,9 @@ public class PosScripts extends Configurations {
         functions.waitForElementToBeClickable(loginPage.getUserNameField());
         loginPage.getUserNameField().sendKeys(dataLoader.credentialsData("systemUser"));
         functions.waitForElementToBeClickable(loginPage.getPasswordField());
-        loginPage.getPasswordField().sendKeys(dataLoader.credentialsData("qaPassword1"));
+        loginPage.getPasswordField().sendKeys(dataLoader.credentialsData("systemPass"));
 
         loginPage.clickOnLoginButton();
-
-        String languageButtonValue = homePage.getSwitchLanguageButton().getAttribute("onclick");
-
-        if (languageChosen.equalsIgnoreCase("english") && languageButtonValue.equalsIgnoreCase("ui.changeLanguage('EN')")) {
-            homePage.clickOnSwitchLanguageButton();
-        } else if (languageChosen.equalsIgnoreCase("arabic") && languageButtonValue.equalsIgnoreCase("ui.changeLanguage('AR')")) {
-            homePage.clickOnSwitchLanguageButton();
-        }
     }
 
     @Parameters({"noOfReceipts" , "receiptAmount"})
@@ -61,6 +52,8 @@ public class PosScripts extends Configurations {
 
             long longRandomNumber = functions.generateRandomNumber(12);
             String stringRandomNumber = Long.toString(longRandomNumber);
+
+            functions.dropDownPickerByIndex(pointOfSalesTransactionsPage.getIndustrialAreaDropDownList(), 2);
             pointOfSalesTransactionsPage.getReceiptNumberField().sendKeys(stringRandomNumber);
             pointOfSalesTransactionsPage.getReceiptAmountField().sendKeys(stringReceiptAmount);
             Thread.sleep(1000);
