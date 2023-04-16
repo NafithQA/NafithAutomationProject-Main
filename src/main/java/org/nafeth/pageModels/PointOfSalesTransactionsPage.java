@@ -19,6 +19,9 @@ public class PointOfSalesTransactionsPage {
     @FindBy(id = "CREATE")
     private WebElement createButton;
 
+    @FindBy(id = "LOCATION_ID")
+    private WebElement industrialAreaDropDownList;
+
     public PointOfSalesTransactionsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -45,5 +48,11 @@ public class PointOfSalesTransactionsPage {
 
         functions.waitForElementToBeClickable(createButton);
         createButton.click();
+    }
+
+    public WebElement getIndustrialAreaDropDownList() {
+
+        functions.waitForElementToBeVisible(industrialAreaDropDownList);
+        return industrialAreaDropDownList;
     }
 }
