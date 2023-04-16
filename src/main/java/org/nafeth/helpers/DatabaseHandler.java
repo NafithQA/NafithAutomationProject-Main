@@ -11,23 +11,8 @@ public class DatabaseHandler {
     public static void main(String[] args) {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-//        ArrayList<String> testsInformations = databaseHandler.getTestsInformationsFromDataBase(OtherQueries.testsInformationsQuery);
-
-//        System.out.println("Payment method is : " + testsInformations.get(1));
-//
-        ArrayList<String> testData = databaseHandler.getTestDataUsingQuery("select u.login Username,'123456'password,u.role_code Rolecode,FV.PLATE_NUMBER,FV.PLATE_CODE_AR,FV.PLATE_CODE_EN,'PPH00004' c1,'PPH000044'c2,'ACCESS'c3,'4'Du,'5'c4,'4'L  from OmanTCS_QA.dbo.Users u,OmanTCS_QA.dbo.FLEET_VIEW FV,OmanTCS_QA.dbo.COMPANIES_VIEW CV  Where u.status_code='ACTIVE' and u.RELATED_ENTITY_ID=11 and u.RELATED_ENTITY_RECORD_ID=CV.ID and FV.ENTITY_ID=8 and FV.RELATED_ENTITY_ID  = 11 and CV.ID=FV.RELATED_ENTITY_record_ID and U.role_code  in  ('COMPANIES_ADMIN')  and FV.ENTITY_ID in('8')  and FV.STATUS_CODE in('INCOMPLETE') and FV.property_value in('HEAVY')and FV.ENTITY_RECORD_ID not in(select ISNULL(sv.fleet_entity_record_id,0)from OmanTCS_QA.dbo.subscriptions_view sv where  sv.status_code in('ACTIVE' , 'PENDING' , 'PLANNED')and sv.fleet_entity_id=8 and service_code ='ACCESS')");
+        ArrayList<String> testData = databaseHandler.getValidRnnFromDataBase(OtherQueries.dynamicRnnQuery("5"));
         System.out.println(testData.get(0));
-        System.out.println(testData.get(1));
-        System.out.println(testData.get(2));
-        System.out.println(testData.get(3));
-        System.out.println(testData.get(4));
-        System.out.println(testData.get(5));
-        System.out.println(testData.get(6));
-        System.out.println(testData.get(7));
-        System.out.println(testData.get(8));
-        System.out.println(testData.get(9));
-        System.out.println(testData.get(10));
-
     }
 
     // This hits the initial query to get Tests Informations and Queries             # 1 #
@@ -496,11 +481,10 @@ public class DatabaseHandler {
     // Get Valid RNN
     public ArrayList<String> getValidRnnFromDataBase(String query) {
         // Build sql server jdbc connection url use sql server account authentication.
-        String host = "82.212.90.190";
-//        String host = "192.168.6.24";
-        String dbName = "OmanTCS_QA";
-        String connectionUserName = "omantcs";
-        String connectionPassword = "123456";
+        String host = "192.168.6.48";
+        String dbName = "OmanTCS_AUTOMATION";
+        String connectionUserName = "qa";
+        String connectionPassword = "QA123";
 
         String sqlServerConnectionUrl = "jdbc:sqlserver://" + host + ";databaseName=" + dbName + ";user=" + connectionUserName + ";password=" + connectionPassword + "";
 

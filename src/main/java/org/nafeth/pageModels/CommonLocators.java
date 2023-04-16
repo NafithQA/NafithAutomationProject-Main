@@ -68,6 +68,22 @@ public class CommonLocators {
     @FindBy(id = "checkAgree")
     private WebElement agreementCheckbox;
 
+    @FindBy(id = "BU0002_btn")
+    private WebElement BusPackageChooseButton;
+
+    @FindBy(xpath = "//a[@href='#finish']")
+    private WebElement payButton;
+
+    @FindBy(id = "UNOWNED_FLEET_btn")
+    private WebElement oneTimePermitButton;
+
+    @FindBy(id = "POH00001_btn")
+    private WebElement oneTimePermitForHeavyTrucks;
+
+    @FindBy(id = "POH000051_btn")
+    private WebElement oneTimePermitAccess;
+
+
     public void clickOnYesButton() {
 
         functions.waitForElementToBeClickable(yesButton);
@@ -141,6 +157,13 @@ public class CommonLocators {
         firstAvailablePackageChooseButtonOO.click();
     }
 
+    public void clickOnBusPackageChooseButton() {
+
+        functions.waitForElementToBeClickable(BusPackageChooseButton);
+        BusPackageChooseButton.click();
+    }
+
+
     public void clickOnFirstAvailablePackageChooseButtonSP() {
 
         functions.waitForElementToBeClickable(firstAvailablePackageChooseButtonSP);
@@ -174,5 +197,28 @@ public class CommonLocators {
 
         functions.waitForElementToBeClickable(createButton);
         createButton.click();
+    }
+
+    public WebElement getPayButton() {
+
+        functions.waitForElementToBeClickable(payButton);
+        return payButton;
+    }
+
+    public void clickOnOneTimePermitButton() {
+
+        functions.waitForElementToBeClickable(oneTimePermitButton);
+        oneTimePermitButton.click();
+    }
+
+    public void clickOnOneTimePermitForHeavyTrucksButton() {
+
+        functions.waitForElementToBeClickable(oneTimePermitForHeavyTrucks);
+        oneTimePermitForHeavyTrucks.click();
+    }
+    public void clickOnOneTimePermitAccess() {
+
+        functions.waitForElementToBeClickable(oneTimePermitAccess);
+        oneTimePermitAccess.click();
     }
 }

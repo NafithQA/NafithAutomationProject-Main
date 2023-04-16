@@ -76,9 +76,9 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         String CRN = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillCRNNum(CRN);
-        String ArabicName = String.valueOf(" شركة_أتوميشن_بالعربي" + functions.getRandomName());
+        String ArabicName = String.valueOf("شركة_أتوميشن_بالعربي" + functions.getRandomName());
         stakeholdersRegistrationPage.fillArabicName(ArabicName);
-        String EnglishName = String.valueOf("Automation Trucking Companies EN " + functions.getRandomName());
+        String EnglishName = String.valueOf("Automation Trucking Companies EN" + functions.getRandomName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
         String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
         stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
