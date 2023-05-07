@@ -1,7 +1,6 @@
 package org.nafeth.pageModels;
 
-import org.nafeth.helpers.DataLoader;
-import org.nafeth.helpers.ExcelHandler;
+
 import org.nafeth.helpers.Functions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

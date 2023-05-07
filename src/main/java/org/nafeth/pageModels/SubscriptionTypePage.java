@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class SubscriptionTypePage {
     private Functions functions = new Functions();
 
@@ -50,6 +52,9 @@ public class SubscriptionTypePage {
 
     @FindBy(id = "RECEIPT_ID")
     private WebElement receiptIdField;
+
+    @FindBy(id = "FLEET_APPROVAL_NUMBER")
+    private WebElement approvalNumbersField;
 
     public WebElement getIndustrialEstateDropDownList() {
 
@@ -137,4 +142,8 @@ public class SubscriptionTypePage {
         functions.waitForElementToBeClickable(receiptIdField);
         return receiptIdField;
     }
+
+
+
 }
+
