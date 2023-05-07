@@ -1,18 +1,23 @@
 package org.nafeth.commonSteps;
 
-import org.nafeth.helpers.DatabaseHandler;
 import org.nafeth.helpers.Functions;
-import org.nafeth.helpers.Queries.OtherQueries;
 import org.nafeth.pageModels.CommonLocators;
+import org.nafeth.helpers.Queries.OtherQueries;
 import org.nafeth.pageModels.HomePage;
+import org.nafeth.helpers.DatabaseHandler;
 import org.nafeth.pageModels.SubscriptionTypePage;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SubscriptionTypeSteps {
 
+
     WebDriver driver;
+    
+
+    String idDocumentNumber;
 
     public SubscriptionTypeSteps(WebDriver driver) {
         this.driver = driver;
@@ -132,14 +137,10 @@ public class SubscriptionTypeSteps {
 
     }
 
-    public void createOneTimePermitSubscription() throws InterruptedException {
+    public void createOneTimePermitSubscription() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
         SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
-
-
-        String ApprovalNumber = String.valueOf("FLEET_APPROVAL_NUMBER" + functions.getRandomInvestorName());
-        //  subscriptionTypePage.fillArabicName(ApprovalNumber);
         functions.dropDownPickerByIndex(subscriptionTypePage.getIndustrialEstateDropDownList(), 1);
         subscriptionTypePage.clickOnPackageOneMonthButton();
         subscriptionTypePage.clickOnChooseAnyVehicle();
@@ -148,16 +149,5 @@ public class SubscriptionTypeSteps {
         subscriptionTypePage.clickOnNextButton();
         Thread.sleep(750);
         functions.scrollThePageDown();
-    }
-
-    public void ApprovalNumber() throws InterruptedException {
-        SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-
-        subscriptionTypePage.fillApprovalNumber();
-        ArrayList<String> testData = (databaseHandler.getValidRnnFromDataBase(OtherQueries.dynamicRnnQuery("10")));
-        String rnn = testData.get(0);
-        subscriptionTypePage.getReceiptIdField().sendKeys(rnn);
-        Thread.sleep(750);
     }
 }

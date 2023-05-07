@@ -110,7 +110,9 @@ public class StakeholderRegistrationSteps {
         functions.scrollIntoElement(commonLocators.getCreateButton());
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getIndustrialAreaDropDownList(), 2);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getGovernorateDropDownList(), 2);
+        Thread.sleep(1000);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getStateDropDownList(), 2);
+        Thread.sleep(1000);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getCityDropDownList(), 2);
         String Address = String.valueOf("Address" + functions.getRandomName());
         stakeholdersRegistrationPage.fillAddress(Address);

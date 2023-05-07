@@ -3,7 +3,6 @@ package org.nafeth.subscriptionTypeTest;
 import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.SubscriptionTypeSteps;
-import org.nafeth.pageModels.CreditPaymentPage;
 import org.nafeth.pageModels.SubscriptionTypePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

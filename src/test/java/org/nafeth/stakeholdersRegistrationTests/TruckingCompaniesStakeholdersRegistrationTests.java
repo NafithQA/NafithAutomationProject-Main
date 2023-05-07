@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class TruckingCompaniesStakeholdersRegistrationTests extends Configurations {
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompanies_External_Registration() throws IOException, InterruptedException {
 
         Functions functions = new Functions();

@@ -27,10 +27,10 @@ public class PermitTests extends Configurations {
         // Navigate To Permit Packages
         subscriptionTypeSteps.navigateToPermitPackages();
 
-         // Create  Permit
+        // Create  Permit
         subscriptionTypeSteps.createOneTimePermitSubscription();
 
-         // Pay By Balance
+        // Pay By Balance
 //        subscriptionTypeSteps.payByBalance();
 //
 //        // Check the Agreement
@@ -40,5 +40,38 @@ public class PermitTests extends Configurations {
 //        subscriptionTypeSteps.proceedWithFinalRegistrationSteps();
 //        // Test Assertion
 //        Assert.assertTrue(subscriptionTypePage.getSuccessRingIcon().isDisplayed());
+    }
+
+
+    @Test(enabled = false)
+    public void SubscriptionType_TruckingCompanies_HeavyTruck_FromBalance() throws IOException, InterruptedException {
+
+        SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
+        SubscriptionTypeSteps subscriptionTypeSteps = new SubscriptionTypeSteps(driver);
+        GenericSteps genericSteps = new GenericSteps(driver);
+
+        // Login
+        genericSteps.loginToMAMS(dataLoader.credentialsData("truckingCompanyUser"), dataLoader.credentialsData("truckingCompanyPass"));
+
+        // Navigate to Fleet Subscription Menu
+        subscriptionTypeSteps.navigateToFleetSubscriptionMenu();
+
+        // Navigate To Heavy Trucks Packages
+        subscriptionTypeSteps.navigateToHeavyTrucksPackages();
+
+        // Create  Fleet Subscription
+        subscriptionTypeSteps.createHeavyFleetSubscription();
+
+        // Pay By Balance
+        subscriptionTypeSteps.payByBalance();
+
+        // Check the Agreement
+        subscriptionTypePage.clickOnAgreementCheckbox();
+
+        // Proceed with Final Registration Steps
+        subscriptionTypeSteps.proceedWithFinalRegistrationSteps();
+        // Test Assertion
+        Assert.assertTrue(subscriptionTypePage.getSuccessRingIcon().isDisplayed());
+
     }
 }
