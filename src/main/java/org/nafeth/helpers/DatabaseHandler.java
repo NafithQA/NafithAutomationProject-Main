@@ -15,6 +15,7 @@ public class DatabaseHandler {
         System.out.println(testData.get(0));
     }
 
+
     // This hits the initial query to get Tests Informations and Queries             # 1 #
     public ArrayList<String> getTestsInformationsFromDataBase(String query) {
         // Build sql server jdbc connection url use sql server account authentication.
@@ -480,6 +481,79 @@ public class DatabaseHandler {
 
     // Get Valid RNN
     public ArrayList<String> getValidRnnFromDataBase(String query) {
+        // Build sql server jdbc connection url use sql server account authentication.
+        String host = "192.168.6.48";
+        String dbName = "OmanTCS_AUTOMATION";
+        String connectionUserName = "qa";
+        String connectionPassword = "QA123";
+
+        String sqlServerConnectionUrl = "jdbc:sqlserver://" + host + ";databaseName=" + dbName + ";user=" + connectionUserName + ";password=" + connectionPassword + "";
+
+        // Declare the JDBC objects.
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        List<String> returnedResultSet = new ArrayList<String>();
+
+        String receiptNumber = null;
+
+        try {
+            // Get connection.
+            dbConnection = DriverManager.getConnection(sqlServerConnectionUrl);
+
+            // Execute sql and return data result.
+            String SQL = query;
+            statement = dbConnection.createStatement();
+            resultSet = statement.executeQuery(SQL);
+
+            // ArrayLists to store column's results sets
+            ArrayList<String> receiptsResultSet = new ArrayList<String>();
+
+            // Loop the data result and display the data.
+            while (resultSet.next()) {
+
+                // Storing results sets into ArrayLists
+                receiptNumber = String.valueOf(receiptsResultSet.add(resultSet.getString("receipt_id")));
+            }
+
+            // Adding all results sets into the main returnedResultSet to be returned to the requester
+            returnedResultSet.add(receiptsResultSet.get(1));
+
+            // Printing values of results sets
+            System.out.println("A : " + receiptsResultSet.get(1));
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return (ArrayList<String>) returnedResultSet;
+    }
+
+
+    public ArrayList<String> getValidFleetRequestNumberFromDataBase(String query) {
         // Build sql server jdbc connection url use sql server account authentication.
         String host = "192.168.6.48";
         String dbName = "OmanTCS_AUTOMATION";
