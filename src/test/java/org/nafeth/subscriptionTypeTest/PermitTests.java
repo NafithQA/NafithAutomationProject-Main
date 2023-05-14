@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class PermitTests extends Configurations {
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void Permit_TruckingCompanies_FromBalance() throws IOException, InterruptedException {
 
         SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
@@ -27,31 +27,39 @@ public class PermitTests extends Configurations {
         // Navigate To Permit Packages
         subscriptionTypeSteps.navigateToPermitPackages();
 
-        // Create  Permit
+        // Fill Vehicle  Information
         subscriptionTypeSteps.createOneTimePermitSubscription();
 
+        // Fill Drivers  Information
+        subscriptionTypeSteps.FillDriverPermitSubscription();
+
+        // Upload Attachments
+        subscriptionTypeSteps.uploadPermitAttachments();
+
+
         // Pay By Balance
-//        subscriptionTypeSteps.payByBalance();
-//
-//        // Check the Agreement
-//        subscriptionTypePage.clickOnAgreementCheckbox();
-//
-//        // Proceed with Final Registration Steps
-//        subscriptionTypeSteps.proceedWithFinalRegistrationSteps();
-//        // Test Assertion
-//        Assert.assertTrue(subscriptionTypePage.getSuccessRingIcon().isDisplayed());
+        subscriptionTypeSteps.payByBalance();
+
+       // Check the Agreement
+        subscriptionTypePage.clickOnAgreementCheckbox();
+
+        // Proceed with Final Registration Steps
+         subscriptionTypeSteps.proceedWithFinalRegistrationSteps();
+
+        // Test Assertion
+       Assert.assertTrue(subscriptionTypePage.getSuccessRingIcon().isDisplayed());
     }
 
 
-    @Test(enabled = false)
-    public void SubscriptionType_TruckingCompanies_HeavyTruck_FromBalance() throws IOException, InterruptedException {
+    @Test(enabled = true)
+    public void Permit_Investor_FromBalance() throws IOException, InterruptedException {
 
         SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
         SubscriptionTypeSteps subscriptionTypeSteps = new SubscriptionTypeSteps(driver);
         GenericSteps genericSteps = new GenericSteps(driver);
 
         // Login
-        genericSteps.loginToMAMS(dataLoader.credentialsData("truckingCompanyUser"), dataLoader.credentialsData("truckingCompanyPass"));
+        genericSteps.loginToMAMS(dataLoader.credentialsData("investorUser"), dataLoader.credentialsData("investorUser"));
 
         // Navigate to Fleet Subscription Menu
         subscriptionTypeSteps.navigateToFleetSubscriptionMenu();
