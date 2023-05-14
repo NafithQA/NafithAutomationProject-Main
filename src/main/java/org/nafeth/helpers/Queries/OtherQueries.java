@@ -32,25 +32,23 @@ public class OtherQueries {
         return paymentMethodsQuery;
     }
 
-    public static String dynamicFleetRequestNumberQuery(String requestNumber) {
+    public static String dynamicApprovalNumberQuery = " SELECT *\n" +
+            "                             FROM FLEET_REQUEST \n" +
+            "                             where  SENDER_RELATED_ENTITY_RECORD_ID   =1 \n" +
+            "                             and SENDER_RELATED_ENTITY_ID = 11\n" +
+            "                             and status_code in ( 'APPROVED')  ";
 
-        String query = "SELECT TOP (1000) [FLEET_REQUEST_NUMBER]\n" +
-                "              FROM FLEET_REQUEST\n" +
-                "              where  SENDER_RELATED_ENTITY_RECORD_ID   =1\n" +
-                "              and status_code  in ( 'APPROVED') " ;
-        return query;
-    }
-    public static String dynamicOwnedFleetQuery(String OwnedFleet) {
-
-        String query = "SELECT TOP (1000) [PLATE_NUMBER]\n" +
-                "              [PLATE_CODE_AR]\n" +
-                "              FROM trucks\n" +
-                "              where  [RELATED_ENTITY_ID]   =11\n" +
-                "              and    [RELATED_ENTITY_RECORD_ID]   =1\n" +
-                "              and    [TRUCK_TYPE]   ='HEAVY'\n" +
-                "              and    [STATUS_CODE]  in ('REGISTERED' , 'INCOMPLETE') \n";
-         return query;
-    }
-
-
+    public static String dynamicOwnedFleetQuery = "select Distinct F.PLATE_NUMBER , F.PLATE_CODE_EN\n" +
+            "from FLEET_VIEW f , USERS u , COMPANIES_VIEW SH , PERMITS_VIEW P\n" +
+            "where u.RELATED_ENTITY_ID = 11 and u.RELATED_ENTITY_RECORD_ID = SH.id\n" +
+            " and f.RELATED_ENTITY_RECORD_ID=1\n" +
+            " and u.RELATED_ENTITY_ID = f.RELATED_ENTITY_ID\n" +
+            " and u.RELATED_ENTITY_RECORD_ID = f.RELATED_ENTITY_RECORD_ID\n" +
+            " and f.RELATED_ENTITY_ID = 11 and u.role_code = 'COMPANIES_ADMIN'\n" +
+            " and f.PLATE_CODE_EN is not null  \n" +
+            " and p.status_code not in ('PLND','READY_TO_ENTER','TOWARDFACILITY','WAITING_PAY')\n" +
+            " and f.property_value in ( 'HEAVY' )and F.ENTITY_ID IN ('8' ) and f.STATUS_CODE in ('REGISTERED','INCOMPLETE')\n" +
+            " and f.ENTITY_RECORD_ID not in (select TRUCK_ID from AFFILIATION where FLEET_ENTITY_ID IN('8') )\n" +
+            " and f.ENTITY_RECORD_ID not in ( select ISNULL(sv.fleet_entity_record_id ,0) from subscriptions_view sv where\n" +
+            " sv.SERVICE_CODE in ( 'WEIGH','Access' ) and sv.fleet_entity_id = 8 and sv.status_code in ('EXPIRED' , 'INACTIVE' ))";
 }
