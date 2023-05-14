@@ -1,11 +1,9 @@
 package org.nafeth.commonSteps;
 
 import org.nafeth.helpers.Functions;
-import org.nafeth.pageModels.CommonLocators;
+import org.nafeth.pageModels.*;
 import org.nafeth.helpers.Queries.OtherQueries;
-import org.nafeth.pageModels.HomePage;
 import org.nafeth.helpers.DatabaseHandler;
-import org.nafeth.pageModels.SubscriptionTypePage;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -15,7 +13,7 @@ public class SubscriptionTypeSteps {
 
 
     WebDriver driver;
-    
+
 
     String idDocumentNumber;
 
@@ -98,9 +96,23 @@ public class SubscriptionTypeSteps {
 
         subscriptionTypePage.selectPOSOption();
         ArrayList<String> testData = (databaseHandler.getValidRnnFromDataBase(OtherQueries.dynamicRnnQuery("10")));
+        Thread.sleep(750);
         String rnn = testData.get(0);
         subscriptionTypePage.getReceiptIdField().sendKeys(rnn);
         Thread.sleep(750);
+    }
+    public void payByPOSOneTimePermit() throws InterruptedException {
+        SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        Functions functions = new Functions();
+
+        subscriptionTypePage.selectPOSOption();
+        ArrayList<String> testData = (databaseHandler.getValidRnnFromDataBase(OtherQueries.dynamicRnnQuery("4")));
+        Thread.sleep(750);
+        String rnn = testData.get(0);
+        subscriptionTypePage.getReceiptIdField().sendKeys(rnn);
+        Thread.sleep(750);
+        functions.scrollThePageDown();
     }
 
     public void payByBalance() throws InterruptedException {
@@ -137,17 +149,84 @@ public class SubscriptionTypeSteps {
 
     }
 
-    public void createOneTimePermitSubscription() throws IOException, InterruptedException {
+    public void createOneTimePermitSubscription() throws InterruptedException {
 
         Functions functions = new Functions();
         SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
-        functions.dropDownPickerByIndex(subscriptionTypePage.getIndustrialEstateDropDownList(), 1);
-        subscriptionTypePage.clickOnPackageOneMonthButton();
-        subscriptionTypePage.clickOnChooseAnyVehicle();
-        subscriptionTypePage.clickOnSelectOneTruckToSubscribe();
-        functions.scrollIntoElement(subscriptionTypePage.getNextButton());
-        subscriptionTypePage.clickOnNextButton();
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ArrayList<String> approvalNumberList = databaseHandler.getValidApprovalNumber(OtherQueries.dynamicApprovalNumberQuery);
+        String approvalNumber = approvalNumberList.get(0);
+        subscriptionTypePage.fillApprovalNumbersField().sendKeys(approvalNumber);
+        ArrayList<String> truckPlateNumberList = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
+        String truckPlateNumber = truckPlateNumberList.get(0);
+        subscriptionTypePage.fillTruckPlateNumber().sendKeys(truckPlateNumber);
+        ArrayList<String> truckPlateCodeList = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
+        String truckPlateCode = truckPlateCodeList.get(1);
+        functions.dropDownPickerByValue(subscriptionTypePage.getTruckPlateCodeDropDownList(), truckPlateCode);
+        ArrayList<String> trailerPlateNumberList = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
+        String trailerPlateNumber = trailerPlateNumberList.get(0);
+        subscriptionTypePage.fillTrailerPlateNumber().sendKeys(trailerPlateNumber);
+        ArrayList<String> trailerPlateCodeList = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
+        String trailerPlateCode = trailerPlateCodeList.get(1);
+        functions.dropDownPickerByValue(subscriptionTypePage.getTrailerPlateCodeDropDownList(), trailerPlateCode);
+        Thread.sleep(2000);
+        functions.dropDownPickerByIndex(subscriptionTypePage.getTrailerTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(subscriptionTypePage.getCargoTypeDropDownList(), 2);
+        functions.dropDownPickerByIndex(subscriptionTypePage.getOperationTypeDropDownList(), 2);
+
+    }
+
+
+    public void FillDriverPermitSubscription() throws IOException, InterruptedException {
+
+        Functions functions = new Functions();
+        SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
+
+        subscriptionTypePage.clickOnDriverTabInfoTab();
+        functions.dropDownPickerByIndex(subscriptionTypePage.getDocumentNationalityDropDownList(), 2);
+        functions.dropDownPickerByIndex(subscriptionTypePage.getDocumentTypeDropDownList(), 2);
+        idDocumentNumber = String.valueOf(functions.generateRandomNumber(15));
+        subscriptionTypePage.getIdDocumentNumberField().sendKeys(idDocumentNumber);
+        String DriverName = String.valueOf("Driver Automation test " + functions.getRandomName());
+        subscriptionTypePage.fillDriverName(DriverName);
+        functions.dropDownPickerByIndex(subscriptionTypePage.getDriverNationalityDropDownList(), 2);
+        String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
+        subscriptionTypePage.getMobileNumberField().sendKeys(mobileNumber);
+        Thread.sleep(3000);
+    }
+   public void uploadPermitAttachments() throws InterruptedException, IOException {
+
+        SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
+        Functions functions = new Functions();
+
+        subscriptionTypePage.clickOnAttachmentsTabButton();
+        // Attachment 1
+       subscriptionTypePage.clickOnAuthorizationAttachmentButton1();
+
         Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 3
+       subscriptionTypePage.clickOnAuthorizationAttachmentButton2();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 4
+       subscriptionTypePage.clickOnAuthorizationAttachmentButton3();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
+        // Attachment 5
+       subscriptionTypePage.clickOnAuthorizationAttachmentButton4();
+        Thread.sleep(750);
+        Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
+
         functions.scrollThePageDown();
+        subscriptionTypePage.clickOnOneTripAddTruckButton();
+       Thread.sleep(750);
+        subscriptionTypePage.clickOnNextButton();
+       Thread.sleep(750);
+       functions.scrollThePageDown();
     }
 }
