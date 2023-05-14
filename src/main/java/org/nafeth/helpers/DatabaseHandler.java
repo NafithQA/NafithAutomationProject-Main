@@ -11,10 +11,9 @@ public class DatabaseHandler {
     public static void main(String[] args) {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getValidRnnFromDataBase(OtherQueries.dynamicRnnQuery("5"));
+        ArrayList<String> testData = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
         System.out.println(testData.get(0));
     }
-
 
     // This hits the initial query to get Tests Informations and Queries             # 1 #
     public ArrayList<String> getTestsInformationsFromDataBase(String query) {
@@ -552,7 +551,6 @@ public class DatabaseHandler {
         return (ArrayList<String>) returnedResultSet;
     }
 
-
     public ArrayList<String> getValidFleetRequestNumberFromDataBase(String query) {
         // Build sql server jdbc connection url use sql server account authentication.
         String host = "192.168.6.48";
@@ -594,6 +592,156 @@ public class DatabaseHandler {
 
             // Printing values of results sets
             System.out.println("A : " + receiptsResultSet.get(1));
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return (ArrayList<String>) returnedResultSet;
+    }
+
+    // Get Valid RNN
+    public ArrayList<String> getValidApprovalNumber(String query) {
+        // Build sql server jdbc connection url use sql server account authentication.
+        String host = "192.168.6.48";
+        String dbName = "OmanTCS_AUTOMATION";
+        String connectionUserName = "qa";
+        String connectionPassword = "QA123";
+
+        String sqlServerConnectionUrl = "jdbc:sqlserver://" + host + ";databaseName=" + dbName + ";user=" + connectionUserName + ";password=" + connectionPassword + "";
+
+        // Declare the JDBC objects.
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        List<String> returnedResultSet = new ArrayList<String>();
+
+        String approvalNumber = null;
+
+        try {
+            // Get connection.
+            dbConnection = DriverManager.getConnection(sqlServerConnectionUrl);
+
+            // Execute sql and return data result.
+            String SQL = query;
+            statement = dbConnection.createStatement();
+            resultSet = statement.executeQuery(SQL);
+
+            // ArrayLists to store column's results sets
+            ArrayList<String> receiptsResultSet = new ArrayList<String>();
+
+            // Loop the data result and display the data.
+            while (resultSet.next()) {
+
+                // Storing results sets into ArrayLists
+                approvalNumber = String.valueOf(receiptsResultSet.add(resultSet.getString("FLEET_REQUEST_NUMBER")));
+            }
+
+            // Adding all results sets into the main returnedResultSet to be returned to the requester
+            returnedResultSet.add(receiptsResultSet.get(1));
+
+            // Printing values of results sets
+            System.out.println("A : " + receiptsResultSet.get(1));
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return (ArrayList<String>) returnedResultSet;
+    }
+
+    public ArrayList<String> getOwnedFleetData(String query) {
+        // Build sql server jdbc connection url use sql server account authentication.
+        String host = "192.168.6.48";
+        String dbName = "OmanTCS_AUTOMATION";
+        String connectionUserName = "qa";
+        String connectionPassword = "QA123";
+
+        String sqlServerConnectionUrl = "jdbc:sqlserver://" + host + ";databaseName=" + dbName + ";user=" + connectionUserName + ";password=" + connectionPassword + "";
+
+        // Declare the JDBC objects.
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        List<String> returnedResultSet = new ArrayList<String>();
+
+        String plateNumber = null;
+        String plateCode = null;
+
+        try {
+            // Get connection.
+            dbConnection = DriverManager.getConnection(sqlServerConnectionUrl);
+
+            // Execute sql and return data result.
+            String SQL = query;
+            statement = dbConnection.createStatement();
+            resultSet = statement.executeQuery(SQL);
+
+            // ArrayLists to store column's results sets
+            ArrayList<String> plateNumberResultSet = new ArrayList<String>();
+            ArrayList<String> plateCodeResultSet = new ArrayList<String>();
+
+            // Loop the data result and display the data.
+            while (resultSet.next()) {
+
+                // Storing results sets into ArrayLists
+                plateNumber = String.valueOf(plateNumberResultSet.add(resultSet.getString("PLATE_NUMBER")));
+                plateCode = String.valueOf(plateCodeResultSet.add(resultSet.getString("PLATE_CODE_EN")));
+            }
+
+            // Adding all results sets into the main returnedResultSet to be returned to the requester
+            returnedResultSet.add(plateNumberResultSet.get(0));
+            returnedResultSet.add(plateCodeResultSet.get(0));
+
+            // Printing values of results sets
+            System.out.println("Plate Number : " + plateNumberResultSet.get(0));
+            System.out.println("Plate Code : " + plateCodeResultSet.get(0));
 
         } catch (Exception ex) {
             ex.printStackTrace();
