@@ -83,6 +83,11 @@ public class CommonLocators {
     @FindBy(id = "POH000051_btn")
     private WebElement oneTimePermitAccess;
 
+    @FindBy(id = "N00001_btn")
+    private WebElement accessPermitNafithTrucks;
+
+    @FindBy(xpath = "//div[@class='card-body']/a[1]")
+    private WebElement industrialEstateAccessPermission;
 
     public void clickOnYesButton() {
 
@@ -118,7 +123,7 @@ public class CommonLocators {
 
         functions.waitForElementToBeClickable(accessServiceChooseButton);
         accessServiceChooseButton.click();
-        functions.waitForPageToLoad();
+       // functions.waitForPageToLoad();
     }
 
     public void clickOnCntrServiceChooseButton() {
@@ -221,4 +226,14 @@ public class CommonLocators {
         functions.waitForElementToBeClickable(oneTimePermitAccess);
         oneTimePermitAccess.click();
     }
+    public void clickOnAccessPermitNafithTrucksButton() {
+        functions.waitForElementToBeClickable(accessPermitNafithTrucks);
+        accessPermitNafithTrucks.click();
+    }
+    public void clickOnIndustrialEstateAccessPermissionButton() {
+
+       functions.waitForElementToBeClickable(industrialEstateAccessPermission);
+        industrialEstateAccessPermission.click();
+    }
+
 }
