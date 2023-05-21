@@ -74,6 +74,12 @@ public class StakeholdersRegistrationPage {
     @FindBy(xpath = "//div[@class='swal2-success-ring']")
     private WebElement successRingIcon;
 
+    @FindBy(xpath = "//div[@class='swal2-actions']/button[1]")
+    private WebElement continueRingIcon;
+
+    @FindBy(xpath = "//div[@class='swal2-actions']/button[2]")
+    private WebElement noRingIcon;
+
     @FindBy(id = "CN")
     private WebElement CN;
 
@@ -282,6 +288,21 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeClickable(successRingIcon);
         return successRingIcon;
     }
+
+    public WebElement getContinueRingIcon() {
+
+        functions.waitForElementToBeVisible(continueRingIcon);
+        functions.waitForElementToBeClickable(continueRingIcon);
+        return continueRingIcon;
+    }
+    public WebElement getNoRingIcon() {
+
+        functions.waitForElementToBeVisible(noRingIcon);
+        functions.waitForElementToBeClickable(noRingIcon);
+        return noRingIcon;
+    }
+
+
     public void clickOnYesButton() {
         functions.waitForElementToBeClickable(yesButton);
         yesButton.click();
