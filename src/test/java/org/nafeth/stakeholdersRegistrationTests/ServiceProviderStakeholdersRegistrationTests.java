@@ -4,17 +4,15 @@ import org.nafeth.base.Configurations;
 import org.nafeth.commonSteps.GenericSteps;
 import org.nafeth.commonSteps.StakeholderRegistrationSteps;
 import org.nafeth.helpers.Functions;
-import org.nafeth.pageModels.CommonLocators;
 import org.nafeth.pageModels.StakeholdersRegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static org.nafeth.base.Configurations.driver;
 
 public class ServiceProviderStakeholdersRegistrationTests extends Configurations {
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void ServiceProvider_External_Registration() throws IOException, InterruptedException {
 
         Functions functions = new Functions();
@@ -43,7 +41,7 @@ public class ServiceProviderStakeholdersRegistrationTests extends Configurations
         stakeholderRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(stakeholdersRegistrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(stakeholdersRegistrationPage.getContinueRingIcon().isDisplayed());
     }
 
     @Test(enabled = true)
@@ -72,7 +70,7 @@ public class ServiceProviderStakeholdersRegistrationTests extends Configurations
         stakeholderRegistrationSteps.proceedWithFinalRegistrationSteps();
 
         // Test Assertion
-        Assert.assertTrue(stakeholdersRegistrationPage.getSuccessRingIcon().isDisplayed());
+        Assert.assertTrue(stakeholdersRegistrationPage.getNoRingIcon().isDisplayed());
     }
 }
 

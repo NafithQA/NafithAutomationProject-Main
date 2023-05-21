@@ -17,8 +17,8 @@
             <class name="org.nafeth.stakeholdersRegistrationTests.TruckingCompaniesStakeholdersRegistrationTests"/>
             <class name="org.nafeth.stakeholdersRegistrationTests.InvestorsStakeholdersRegistrationTests"/>
             <class name="org.nafeth.stakeholdersRegistrationTests.ServiceProviderStakeholdersRegistrationTests"/>
-
-
+            <class name="org.nafeth.subscriptionTypeTest.PermitTests"/>
+            <class name="org.nafeth.subscriptionTypeTest.SubscriptionTypeTruckingCompanies"/>
         </classes>
     </test>
 </suite>

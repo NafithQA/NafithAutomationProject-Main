@@ -3,6 +3,7 @@ package org.nafeth.base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.nafeth.helpers.DataLoader;
 import org.nafeth.helpers.Functions;
+import org.nafeth.pageModels.HomePage;
 import org.nafeth.pageModels.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,7 +33,7 @@ public class Configurations {
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("FireFox")) {
 
-            System.setProperty("webdriver.gecko.driver","C:\\Program Files\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
             driver = new FirefoxDriver();
         } else if (browserName.equalsIgnoreCase("Edge")) {
 
@@ -45,7 +46,6 @@ public class Configurations {
             options.addArguments("headless");
             driver = new ChromeDriver(options);
         }
-
 //        LoginPage loginPage = new LoginPage(driver);
 //        Functions functions = new Functions();
 //
@@ -57,15 +57,7 @@ public class Configurations {
 //        loginPage.getPasswordField().sendKeys(dataLoader.credentialsData("systemPass"));
 //        loginPage.clickOnLoginButton();
 //        Thread.sleep(3000);
-
-//        String languageButtonValue = homePage.getSwitchLanguageButton().getAttribute("onclick");
-//        if (languageChosen.equalsIgnoreCase("english") && languageButtonValue.equalsIgnoreCase("ui.changeLanguage('EN')")) {
-//            homePage.clickOnSwitchLanguageButton();
-//        } else if (languageChosen.equalsIgnoreCase("arabic") && languageButtonValue.equalsIgnoreCase("ui.changeLanguage('AR')")) {
-//            homePage.clickOnSwitchLanguageButton();
-//        }
-
-        // Recorder Start Setup
+            // Recorder Start Setup
 //        try {
 //            Recorder.startRecord(method);
 //        } catch (ATUTestRecorderException e) {

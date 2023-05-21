@@ -27,7 +27,7 @@ public class StakeholderRegistrationSteps {
         functions.moveToElement(homePage.getMainNavigationMenu());
         homePage.clickOnRegistrationSystemMenu();
         functions.scrollThePageDown();
-        Thread.sleep(1000);
+        Thread.sleep(750);
         homePage.clickOnRegistrationStakeholderMenu();
         functions.scrollThePageDown();
     }
@@ -65,7 +65,7 @@ public class StakeholderRegistrationSteps {
         functions.scrollThePageDown();
         functions.moveToElement(homePage.getMainAppContent());
         homePage.clickOnServiceProviderRegistrationPageButton();
-        Thread.sleep(1000);
+        Thread.sleep(750);
     }
 
     public void fillInTruckingCompaniesRegistrationInfo() throws IOException, InterruptedException {
@@ -142,29 +142,30 @@ public class StakeholderRegistrationSteps {
         Functions functions = new Functions();
         CommonLocators commonLocators = new CommonLocators(driver);
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
-        Thread.sleep(750);
+
         String CRN = String.valueOf(functions.generateRandomNumber(8));
         stakeholdersRegistrationPage.fillCRNInvestor(CRN);
         String ArabicName = String.valueOf("مزود_خدمة_أتوميشن_بالعربي" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillArabicName(ArabicName);
         String EnglishName = String.valueOf("AutoServiceProviderEN_" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillEnglishName(EnglishName);
-        Thread.sleep(750);
         String workPermitNo  = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillWorkPermitNo(workPermitNo);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getWorkPermitTypeDropDownList(), 1);
-        Thread.sleep(1000);
         functions.scrollIntoElement(commonLocators.getCreateButton());
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getIndustrialAreaDropDownList(), 2);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getGovernorateDropDownList(), 2);
+        Thread.sleep(750);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getStateDropDownList(), 2);
+        Thread.sleep(750);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getCityDropDownList(), 2);
         String Address = String.valueOf("Address" + functions.getRandomName());
         stakeholdersRegistrationPage.fillAddress(Address);
+        Thread.sleep(750);
         functions.dropDownPickerByIndex(stakeholdersRegistrationPage.getPersonalDocumentTypeDropDownList(), 2);
         String nN = String.valueOf(functions.generateRandomNumber(15));
         stakeholdersRegistrationPage.fillNn(nN);
-        Thread.sleep(1000);
+        Thread.sleep(750);
         String FirstName = String.valueOf("First" + functions.getRandomInvestorName());
         stakeholdersRegistrationPage.fillFirstName(FirstName);
         String FatherName = String.valueOf("Second" + functions.getRandomInvestorName());
@@ -175,10 +176,8 @@ public class StakeholderRegistrationSteps {
         stakeholdersRegistrationPage.fillFamilyName(FamilyName);
         String mobileNumber = String.valueOf(functions.generateRandomNumber(9));
         stakeholdersRegistrationPage.getMobileNumberField().sendKeys(mobileNumber);
-        Thread.sleep(1000);
         String Email = String.valueOf(functions.getRandomEmailString()+"@gmail.com");
         stakeholdersRegistrationPage.fillEmail(Email);
-        Thread.sleep(1000);
         functions.scrollThePageUp();
     }
 
@@ -217,7 +216,7 @@ public class StakeholderRegistrationSteps {
         Thread.sleep(750);
         Runtime.getRuntime().exec("C:\\AutoIT\\FileUpload.exe");
 
-        Thread.sleep(7000);
+        Thread.sleep(750);
         functions.scrollThePageDown();
     }
 
@@ -231,7 +230,7 @@ public class StakeholderRegistrationSteps {
         functions.scrollIntoElementAndClickOnIt(commonLocators.getCreateButton());
         Thread.sleep(750);
         stakeholdersRegistrationPage.clickOnYesButton();
-        Thread.sleep(60000);
+        Thread.sleep(30000);
     }
 
     public void fillInExternalDriverRegistrationInfo() throws InterruptedException {

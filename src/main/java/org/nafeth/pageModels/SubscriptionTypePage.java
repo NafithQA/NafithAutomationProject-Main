@@ -55,6 +55,65 @@ public class SubscriptionTypePage {
 
     @FindBy(id = "FLEET_APPROVAL_NUMBER")
     private WebElement approvalNumbersField;
+    @FindBy(id = "TRUCK_PLATE_NUMBER")
+    private WebElement truckPlateNumber;
+
+    @FindBy(id = "TRUCK_PLATE_CODE")
+    private WebElement truckPlateCode;
+
+    @FindBy(id = "TRAILER_PLATE_NUMBER")
+    private WebElement trailerPlateNumber;
+
+    @FindBy(id = "TRAILER_PLATE_CODE")
+    private WebElement trailerPlateCode;
+
+    @FindBy(id = "TRAILER_TYPE")
+    private WebElement trailerType;
+
+    @FindBy(id = "CARGO_TYPE")
+    private WebElement cargoType;
+
+    @FindBy(id = "OPERATION_TYPE")
+    private WebElement operationType;
+
+    @FindBy(id = "ONETRIP_DRIVERINFO-TAB")
+    private WebElement driverInfoTab;
+
+    @FindBy(id = "PERSONAL_DOC_NATIONALITY")
+    private WebElement personalDocNationality;
+
+    @FindBy(id = "PERSONAL_DOC_TYPE")
+    private WebElement personalDocType;
+
+    @FindBy(id = "PERSONAL_DOC_NUMBER")
+    private WebElement documentNumberField;
+
+
+    @FindBy(id = "RESIDENT_CARD")
+    private WebElement driverCard;
+
+    @FindBy(id = "DRIVER_NAME")
+    private WebElement driverNameField;
+
+    @FindBy(id = "DRIVER_NATIONALITY")
+    private WebElement driverNationalityField;
+
+    @FindBy(id = "DRIVER_MOBILE")
+    private WebElement driverMobileField;
+
+    @FindBy(id = "ATTACHMENT-TAB")
+    private WebElement attachmentsTabButton;
+    @FindBy(id = "DRIVER_FRONT_PER_DOC_ATT")
+    private WebElement authorizationAttachmentButton1;
+    @FindBy(id = "DRIVER_BACK_PER_DOC_ATT")
+    private WebElement authorizationAttachmentButton2;
+    @FindBy(id = "DRIVER_FRONT_LIC_ATT")
+    private WebElement authorizationAttachmentButton3;
+    @FindBy(id = "DRIVER_BACK_LIC_ATT")
+    private WebElement authorizationAttachmentButton4;
+
+    @FindBy(id = "oneTripAddTruck")
+    private WebElement oneTripAddTruckButton;
 
     public WebElement getIndustrialEstateDropDownList() {
 
@@ -143,7 +202,136 @@ public class SubscriptionTypePage {
         return receiptIdField;
     }
 
+    public WebElement fillApprovalNumbersField() {
+
+        functions.waitForElementToBeVisible(approvalNumbersField);
+        functions.waitForElementToBeClickable(approvalNumbersField);
+        return approvalNumbersField;
+    }
+
+    public WebElement fillTruckPlateNumber() {
+
+        functions.waitForElementToBeVisible(truckPlateNumber);
+        functions.waitForElementToBeClickable(truckPlateNumber);
+        return truckPlateNumber;
+    }
+
+    public WebElement getTruckPlateCodeDropDownList() {
+
+        functions.waitForElementToBeVisible(truckPlateCode);
+        functions.waitForElementToBeClickable(truckPlateCode);
+        return truckPlateCode;
+    }
+
+    public WebElement fillTrailerPlateNumber() {
+
+        functions.waitForElementToBeVisible(trailerPlateNumber);
+        functions.waitForElementToBeClickable(trailerPlateNumber);
+        return trailerPlateNumber;
+    }
+
+    public WebElement getTrailerPlateCodeDropDownList() {
+
+        functions.waitForElementToBeVisible(trailerPlateCode);
+        functions.waitForElementToBeClickable(trailerPlateCode);
+        return trailerPlateCode;
+    }
+
+    public WebElement getTrailerTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(trailerType);
+        functions.waitForElementToBeClickable(trailerType);
+        return trailerType;
+    }
+
+    public WebElement getCargoTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(cargoType);
+        functions.waitForElementToBeClickable(cargoType);
+        return cargoType;
+    }
+
+    public WebElement getOperationTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(operationType);
+        functions.waitForElementToBeClickable(operationType);
+        return operationType;
+    }
+
+    public void clickOnDriverTabInfoTab() {
+
+        functions.waitForElementToBeClickable(driverInfoTab);
+        driverInfoTab.click();
+    }
+    public void clickOnAttachmentsTabButton() {
+
+        functions.waitForElementToBeClickable(attachmentsTabButton);
+        attachmentsTabButton.click();
+    }
+    public WebElement getDocumentNationalityDropDownList() {
+
+        functions.waitForElementToBeVisible(personalDocNationality);
+        functions.waitForElementToBeClickable(personalDocNationality);
+        return personalDocNationality;
+    }
+    public WebElement getDocumentTypeDropDownList() {
+
+        functions.waitForElementToBeVisible(personalDocType);
+        functions.waitForElementToBeClickable(personalDocType);
+        return personalDocType;
+    }
+    public WebElement getIdDocumentNumberField() {
+
+        functions.waitForElementToBeVisible(documentNumberField);
+        functions.waitForElementToBeClickable(documentNumberField);
+        return documentNumberField;
+    }
+    public void fillDriverName(String driverNameFields) throws IOException {
+
+        functions.waitForElementToBeClickable(driverNameField);
+        driverNameField.sendKeys(driverNameFields);
+    }
+
+    public WebElement getDriverNationalityDropDownList() {
+
+        functions.waitForElementToBeVisible(driverNationalityField);
+        functions.waitForElementToBeClickable(driverNationalityField);
+        return driverNationalityField;
+    }
+
+    public WebElement getMobileNumberField(){
+
+        functions.waitForElementToBeClickable(driverMobileField);
+        return driverMobileField;
+    }
+    public void clickOnAuthorizationAttachmentButton1() {
+
+        functions.waitForElementToBeClickable(authorizationAttachmentButton1);
+        authorizationAttachmentButton1.click();
+    }
+    public void clickOnAuthorizationAttachmentButton2() {
+
+        functions.waitForElementToBeClickable(authorizationAttachmentButton2);
+        authorizationAttachmentButton2.click();
+    }
+    public void clickOnAuthorizationAttachmentButton3() {
+
+        functions.waitForElementToBeClickable(authorizationAttachmentButton3);
+        authorizationAttachmentButton3.click();
+    }
+    public void clickOnAuthorizationAttachmentButton4() {
+
+        functions.waitForElementToBeClickable(authorizationAttachmentButton4);
+        authorizationAttachmentButton4.click();
+    }
+
+    public void clickOnOneTripAddTruckButton() {
+
+        functions.waitForElementToBeClickable(oneTripAddTruckButton);
+        oneTripAddTruckButton.click();
+    }
 
 
 }
+
 

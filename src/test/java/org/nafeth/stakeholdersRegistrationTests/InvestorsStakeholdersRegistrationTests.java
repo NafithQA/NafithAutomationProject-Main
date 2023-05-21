@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class InvestorsStakeholdersRegistrationTests  extends Configurations {
+public class InvestorsStakeholdersRegistrationTests extends Configurations {
     @Test(enabled = true)
     public void Investors_External_Registration() throws IOException, InterruptedException {
 

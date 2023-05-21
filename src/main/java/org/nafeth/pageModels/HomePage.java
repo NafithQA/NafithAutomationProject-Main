@@ -126,16 +126,16 @@ public class HomePage {
     @FindBy(xpath = "//i[@class='ft-shuffle menu-text-margin']")
     private WebElement registrationStakeholderMenu;
 
-    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[2]")
+    @FindBy(xpath = "(//i[@class='fas fa-circle fa-xs'])[7]")
     private WebElement truckingCompaniesRegistrationMenu;
 
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement truckingCompaniesRegistrationPageButton;
 
-    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[3]")
+    @FindBy(xpath = "(//i[@class='fas fa-circle fa-xs'])[8]")
     private WebElement serviceProviderRegistrationMenu;
 
-    @FindBy(xpath = "(//li[@class='has-sub level-3 is-shown'])[1]")
+    @FindBy(xpath = "(//i[@class='fas fa-circle fa-xs'])[6]")
     private WebElement investorsRegistrationMenu;
     @FindBy(xpath = "(//li[@class='is-shown'])[2]")
     private WebElement investorsRegistrationPageButton;
