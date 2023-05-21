@@ -10,9 +10,9 @@ public class DatabaseHandler {
 
     public static void main(String[] args) {
 
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
-        System.out.println(testData.get(0));
+       // DatabaseHandler databaseHandler = new DatabaseHandler();
+       // ArrayList<String> testData = databaseHandler.getOwnedFleetData(OtherQueries.dynamicOwnedFleetQuery);
+       // System.out.println(testData.get(0));
     }
 
     // This hits the initial query to get Tests Informations and Queries             # 1 #
