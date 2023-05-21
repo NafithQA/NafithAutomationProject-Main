@@ -23,6 +23,7 @@ public class FleetRegistrationSteps {
 
         homePage.clickOnMainMenuButton();
         functions.moveToElement(homePage.getMainNavigationMenu());
+        Thread.sleep(1000);
         homePage.clickOnRegistrationSystemMenu();
         functions.scrollThePageDown();
         Thread.sleep(1000);
