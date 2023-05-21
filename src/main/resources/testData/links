@@ -1,2 +1,2 @@
 oldQaURL = http://local.nafith.net:7777/omantcs_stg/index.cfm?lang=EN
-newQaURL = http://192.168.6.46/omantcs_stg/index.cfm
+newQaURL = http://192.168.6.46:81/omantcs_stg/index.cfm
