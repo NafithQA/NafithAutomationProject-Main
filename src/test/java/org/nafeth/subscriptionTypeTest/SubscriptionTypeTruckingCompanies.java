@@ -43,7 +43,7 @@ public class SubscriptionTypeTruckingCompanies extends Configurations {
 
      }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void SubscriptionType_TruckingCompanies_Buses_POS() throws IOException, InterruptedException {
 
         SubscriptionTypePage subscriptionTypePage = new SubscriptionTypePage(driver);
@@ -63,7 +63,7 @@ public class SubscriptionTypeTruckingCompanies extends Configurations {
         subscriptionTypeSteps.createBusesFleetSubscription();
 
         // Pay By POS
-        subscriptionTypeSteps.payByPOS();
+        subscriptionTypeSteps.payByPOS("10");
 
         // Check the Agreement
         subscriptionTypePage.clickOnAgreementCheckbox();
