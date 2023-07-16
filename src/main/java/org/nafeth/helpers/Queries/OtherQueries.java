@@ -2,6 +2,12 @@ package org.nafeth.helpers.Queries;
 
 public class OtherQueries {
 
+    public static String otpNumber(String phoneNumber) {
+
+        String query = "SELECT OTPCode from OTPMessages where PhoneNumber = 796880853";
+        return query;
+    }
+
     public static String dynamicRnnQuery(String amount) {
 
         String query = "SELECT TOP (1000) [receipt_id]\n" +
@@ -78,3 +84,4 @@ public class OtherQueries {
             "              and f.ENTITY_RECORD_ID not in ( select ISNULL(sv.fleet_entity_record_id ,0) from subscriptions_view sv where \n" +
             "              sv.SERVICE_CODE in ( 'WEIGH','Access' ) and sv.fleet_entity_id = 8 and sv.status_code  not in ('EXPIRED' , 'INACTIVE' ))";
 }
+
